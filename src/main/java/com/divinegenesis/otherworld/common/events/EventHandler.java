@@ -23,17 +23,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Mod.EventBusSubscriber
 public class EventHandler
 {
-    private static Map<String, List<ItemStack>> returnList = new HashMap<String, List<ItemStack>>();
-    private static List<BlockState> placeQueue = new ArrayList<>();
-    private static List<BlockPos> placeQueuePos = new ArrayList<>();
+    private static Map<UUID, List<ItemStack>> returnList = new HashMap<UUID, List<ItemStack>>();
 
     @SubscribeEvent
     public static void OnDeath(LivingDeathEvent event)
@@ -41,8 +36,12 @@ public class EventHandler
         if(event.getEntityLiving() instanceof PlayerEntity)
         {
             PlayerEntity player = (PlayerEntity) event.getEntity();
-            List<ItemStack> inv = new ArrayList<>(player.inventory.mainInventory);
-            returnList.put(player.getUniqueID().toString(), inv);
+            List<ItemStack> inv = new ArrayList<>();
+
+            for(int i = 0; i < player.inventory.getSizeInventory(); i++)
+                inv.add(player.inventory.getStackInSlot(i));
+
+            returnList.put(player.getUniqueID(), inv);
         }
     }
 
@@ -59,15 +58,15 @@ public class EventHandler
     public static void OnRespawn(PlayerEvent.Clone event)
     {
         PlayerEntity player = event.getPlayer();
-        if(event.isWasDeath() && returnList.containsKey(player.getUniqueID().toString()))
+        if(event.isWasDeath() && returnList.containsKey(player.getUniqueID()))
         {
-            for(int i = 0; i < 36; i++)
+            for(int i = 0; i < returnList.get(player.getUniqueID()).size(); i++)
             {
-                ItemStack stack = returnList.get(player.getUniqueID().toString()).get(i);
+                ItemStack stack = returnList.get(player.getUniqueID()).get(i);
                 player.inventory.setInventorySlotContents(i, EnchantmentHelper.getEnchantments(stack).get(ModEnchants.soulbound) != null ? stack : ItemStack.EMPTY);
             }
 
-            returnList.remove(player.getUniqueID().toString());
+            returnList.remove(player.getUniqueID());
         }
     }
 }
