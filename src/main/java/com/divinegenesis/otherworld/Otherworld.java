@@ -27,27 +27,13 @@ public class Otherworld
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        //MinecraftForge.EVENT_BUS.register(EventHandler.class);
     }
 
-    private void onCommonSetup(final FMLCommonSetupEvent event)
-    {
-    }
+    private void onCommonSetup(final FMLCommonSetupEvent event){}
 
-    private void onClientSetup(final FMLClientSetupEvent event)
-    {
+    private void onClientSetup(final FMLClientSetupEvent event){}
 
-    }
+    private void enqueueIMC(final InterModEnqueueEvent event) {}
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-    }
-
-    private void processIMC(final InterModProcessEvent event)
-    {
-    }
-
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-    }
+    private void processIMC(final InterModProcessEvent event) {}
 }
