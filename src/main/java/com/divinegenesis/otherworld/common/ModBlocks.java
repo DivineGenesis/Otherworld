@@ -13,4 +13,7 @@ import java.util.List;
 public class ModBlocks
 {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
+
+    public static final Block
+        ICHORIUM = new BlockBase("ichorium_ore", Material.ROCK);
 }

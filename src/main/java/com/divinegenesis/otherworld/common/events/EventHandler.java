@@ -1,26 +1,15 @@
 package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.ModBlocks;
 import com.divinegenesis.otherworld.common.ModEnchants;
-import com.divinegenesis.otherworld.common.ModItems;
-import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.*;
@@ -29,6 +18,13 @@ import java.util.*;
 public class EventHandler
 {
     private static Map<UUID, List<ItemStack>> returnList = new HashMap<UUID, List<ItemStack>>();
+
+    //EVENT NOT FULLY IMPLEMENTED TODO: AUTO-PICKUP, AUTO-SMELT
+    @SubscribeEvent
+    public static void onBlockHarvest(BlockEvent.HarvestDropsEvent event)
+    {
+        Otherworld.LOGGER.info("event fired");
+    }
 
     @SubscribeEvent
     public static void OnDeath(LivingDeathEvent event)

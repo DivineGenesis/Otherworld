@@ -15,5 +15,6 @@ public class ModEnchants
             life_steal = new LifeStealEnchantment().setRegistryName("life_steal"),
             beheading = new BaseEnchantment(5).setRegistryName("beheading"),
             repair = new BaseEnchantment(3).setRegistryName("repair"),
-            auto_smelt = new BaseEnchantment().setRegistryName("auto_smelt");
+            auto_smelt = new BaseEnchantment().setRegistryName("auto_smelt"),
+            pickup = new BaseEnchantment().setRegistryName("auto_pickup");
 }
