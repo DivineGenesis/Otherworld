@@ -87,6 +87,9 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.14.4-28.1.0'
@@ -94,6 +97,10 @@ dependencies {
     //JEI
     compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13")
+
+    //CURIOS
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.3")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.3:api")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

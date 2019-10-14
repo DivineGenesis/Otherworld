@@ -6,6 +6,7 @@ import com.divinegenesis.otherworld.common.*;
 import com.divinegenesis.otherworld.common.world.dimensions.PurgatoryDimensionType;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -38,6 +39,14 @@ public class RegistryEvents
 
         Otherworld.LOGGER.info("Registering items...");
         ModItems.ITEMS.forEach(item -> event.getRegistry().register(item));
+    }
+
+    @SubscribeEvent
+    public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> event)
+    {
+        Otherworld.LOGGER.info("Registering blockitems...");
+
+
     }
 
     @SubscribeEvent
