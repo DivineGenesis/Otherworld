@@ -1,3 +1,4 @@
+![Discord](https://img.shields.io/discord/360327589287559178?label=Discord&style=flat-square)
 # Otherworld 1.14.4
 ### A supernatural-type minecraft mod heavily influenced by Thaumcraft and Witchery
 
