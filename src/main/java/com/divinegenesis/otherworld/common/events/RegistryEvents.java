@@ -3,6 +3,10 @@ package com.divinegenesis.otherworld.common.events;
 import com.divinegenesis.otherworld.OWGroup;
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.*;
+import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
+import com.divinegenesis.otherworld.common.enchants.ModEnchants;
+import com.divinegenesis.otherworld.common.item.ModItems;
 import com.divinegenesis.otherworld.common.world.dimensions.PurgatoryDimensionType;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -44,7 +48,7 @@ public class RegistryEvents
     @SubscribeEvent
     public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> event)
     {
-        Otherworld.LOGGER.info("Registering blockitems...");
+        //Otherworld.LOGGER.info("Registering fluids...");
 
 
     }
@@ -72,7 +76,9 @@ public class RegistryEvents
     @SubscribeEvent
     public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event)
     {
-        event.getRegistry().registerAll();
+        event.getRegistry().registerAll(
+                ModTileEntities.HUNGRY_CHEST = TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te"))
+        );
     }
 
     @SubscribeEvent
@@ -81,4 +87,9 @@ public class RegistryEvents
         event.getRegistry().registerAll();
     }
 
+    @SubscribeEvent
+    public static void OnCurioRegistry(final RegistryEvent.Register<ContainerType<?>> event)
+    {
+        event.getRegistry().registerAll();
+    }
 }

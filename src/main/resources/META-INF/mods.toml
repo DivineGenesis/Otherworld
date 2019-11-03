@@ -1,23 +1,19 @@
 modLoader="javafml"
 loaderVersion="[28,)"
-issueTrackerURL="http://my.issue.tracker/" #optional
+issueTrackerURL="https://github.com/DivineGenesis/Otherworld/issues"
 
 [[mods]]
 modId="otherworld"
-version="${file.jarVersion}" #mandatory
-displayName="Otherworld" #mandatory
-updateJSONURL="http://myurl.me/" #optional
+version="BETA-1.0.0"
+displayName="Otherworld"
 displayURL="http://example.com/" #optional
 logoFile="examplemod.png"
-credits="Thanks for this example mod goes to Java"
-authors="Love, Cheese and small house plants" #optional
-description='''
-What a great description
-'''
+authors="Team DivineGenesis"
+description='''A supernatural-type minecraft mod heavily influenced by Thaumcraft and Witchery amongst other games'''
 
 [[dependencies.otherworld]]
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[28,)" #mandatory
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)"
     ordering="NONE"
     side="BOTH"

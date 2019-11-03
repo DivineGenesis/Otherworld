@@ -1,9 +1,11 @@
 package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.ModEnchants;
-import com.divinegenesis.otherworld.common.ModItems;
+import com.divinegenesis.otherworld.common.enchants.ModEnchants;
+import com.divinegenesis.otherworld.common.helpers.HealthHelper;
+import com.divinegenesis.otherworld.common.item.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -58,7 +60,7 @@ public class EventHandler
                 }
             }
             if(!event.getDrops().isEmpty())
-                event.getDrops().removeIf(itemEntity -> EnchantmentHelper.getEnchantments(itemEntity.getItem()).get(ModEnchants.soulbound) != null);
+                event.getDrops().removeIf(itemEntity -> EnchantmentHelper.getEnchantments(itemEntity.getItem()).get(ModEnchants.SOULBOUND) != null);
         }
     }
 
@@ -66,7 +68,13 @@ public class EventHandler
     public static void OnRespawn(PlayerEvent.Clone event)
     {
         PlayerEntity player = event.getPlayer();
+        PlayerEntity old = event.getOriginal();
+
         UUID uuid = player.getUniqueID();
+
+
+        //player.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
+         //   .setBaseValue(old.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue());
 
         if(event.isWasDeath() && returnList.containsKey(uuid))
         {
@@ -88,7 +96,7 @@ public class EventHandler
             {
                 ItemStack stack = returnList.get(uuid).get(i);
                 if(!hasTotem)
-                    player.inventory.setInventorySlotContents(i, EnchantmentHelper.getEnchantments(stack).get(ModEnchants.soulbound) != null ? stack : ItemStack.EMPTY);
+                    player.inventory.setInventorySlotContents(i, EnchantmentHelper.getEnchantments(stack).get(ModEnchants.SOULBOUND) != null ? stack : ItemStack.EMPTY);
                 else
                     player.inventory.setInventorySlotContents(i, stack);
             }

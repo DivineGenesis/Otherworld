@@ -35,7 +35,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                otherworld {
                     source sourceSets.main
                 }
             }
@@ -51,7 +51,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                otherworld {
                     source sourceSets.main
                 }
             }
@@ -66,16 +66,18 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'otherworld', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                examplemod {
+                otherworld {
                     source sourceSets.main
                 }
             }
         }
     }
 }
+sourceSets.main.resources { srcDir 'src/generated/resources'}
+
 repositories {
     maven {
         // location of the maven that hosts JEI files
@@ -87,20 +89,18 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
-    maven {
-        url = "https://maven.theillusivec4.top/"
-    }
+    maven { url = "https://maven.theillusivec4.top/" }
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.0'
+    minecraft 'net.minecraftforge:forge:1.14.4-28.1.76'
 
     //JEI
     compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13")
 
     //CURIOS
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.3")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.3:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.1")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.1:api")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

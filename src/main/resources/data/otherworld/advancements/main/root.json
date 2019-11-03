@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "otherworld:life_crystal"
+    },
+    "title": {
+      "translate": "advancementTab.otherworld"
+    },
+    "description": {
+      "translate": "advancementTab.otherworld.desc"
+    },
+    "background": "minecraft:textures/block/end_stone_bricks.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "otherworld tab": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
