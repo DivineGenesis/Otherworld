@@ -2,6 +2,7 @@ package com.divinegenesis.otherworld.common.data;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.item.ModItems;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -21,13 +22,14 @@ public class GeneratorRecipes extends RecipeProvider
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer)
     {
-        ShapedRecipeBuilder.shapedRecipe(ModBlocks.ARCANE_PEDESTAL)
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.HUNGRY_CHEST)
                 .patternLine("###")
-                .patternLine(" # ")
+                .patternLine("#A#")
                 .patternLine("###")
-                .key('#', Blocks.COBBLESTONE)
+                .key('#', ModBlocks.GREATWOOD_PLANK)
+                .key('A', ModItems.MIMIC_CORE)
                 .setGroup(Otherworld.MODID)
-                .addCriterion("cobblestone", InventoryChangeTrigger.Instance.forItems(Blocks.COBBLESTONE))
+                .addCriterion("mimic_core", InventoryChangeTrigger.Instance.forItems(ModItems.MIMIC_CORE))
                 .build(consumer);
     }
 }

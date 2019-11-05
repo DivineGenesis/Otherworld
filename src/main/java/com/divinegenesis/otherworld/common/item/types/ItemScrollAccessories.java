@@ -7,8 +7,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import top.theillusivec4.curios.api.CuriosAPI;
 
-public class ItemAccessoryCoin extends ItemBase {
-    public ItemAccessoryCoin(String name) {
+public class ItemScrollAccessories extends ItemBase {
+    public ItemScrollAccessories(String name) {
         super(name);
     }
 

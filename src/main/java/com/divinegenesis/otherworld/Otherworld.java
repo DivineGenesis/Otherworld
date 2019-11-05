@@ -1,7 +1,9 @@
 package com.divinegenesis.otherworld;
 
+import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.fluid.ModFluids;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -23,6 +25,7 @@ public class Otherworld
 
     public Otherworld()
     {
+        IEventBus event = FMLJavaModLoadingContext.get().getModEventBus();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
@@ -30,6 +33,7 @@ public class Otherworld
 
         MinecraftForge.EVENT_BUS.register(this);
         ModFluids fluids = new ModFluids();
+        ModBlocks.BLOCK_REGISTRY.register(event);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event){}

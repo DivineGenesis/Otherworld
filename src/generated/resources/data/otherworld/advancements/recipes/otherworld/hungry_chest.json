@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "otherworld:hungry_chest"
+    ]
+  },
+  "criteria": {
+    "mimic_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "otherworld:mimic_core"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "otherworld:hungry_chest"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mimic_core",
+      "has_the_recipe"
+    ]
+  ]
+}

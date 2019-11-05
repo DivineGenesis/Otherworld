@@ -12,7 +12,11 @@ public class BlockBase extends Block
         this.setRegistryName(name);
 
         ModBlocks.BLOCKS.add(this);
+    }
 
+    public BlockBase()
+    {
+        super(Block.Properties.create(Material.BAMBOO));
     }
 
 }

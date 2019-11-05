@@ -3,13 +3,13 @@ loaderVersion="[28,)"
 issueTrackerURL="https://github.com/DivineGenesis/Otherworld/issues"
 
 [[mods]]
-modId="otherworld"
-version="BETA-1.0.0"
-displayName="Otherworld"
+modId="${mod_id}"
+version="${version}"
+displayName="${mod_name}"
 displayURL="http://example.com/" #optional
 logoFile="examplemod.png"
-authors="Team DivineGenesis"
-description='''A supernatural-type minecraft mod heavily influenced by Thaumcraft and Witchery amongst other games'''
+authors="${mod_author}"
+description='''${mod_description}'''
 
 [[dependencies.otherworld]]
     modId="forge"

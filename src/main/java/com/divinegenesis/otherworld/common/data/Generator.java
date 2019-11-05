@@ -17,10 +17,11 @@ public class Generator
 
         gen.addProvider(new GeneratorRecipes(gen));
         gen.addProvider(new GeneratorLang(gen));
-        gen.addProvider(new GeneratorLoot(gen));
-        gen.addProvider(new GeneratorBlockstates(gen, helper));
+        //gen.addProvider(new GeneratorLoot(gen));
+
         gen.addProvider(new GeneratorItemModels(gen, helper));
         gen.addProvider(new GeneratorAdvancements(gen));
         //gen.addProvider(new GeneratorTags(gen, ));
+            gen.addProvider(new GeneratorBlockstates(gen, helper));
     }
 }

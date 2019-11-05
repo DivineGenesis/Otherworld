@@ -7,6 +7,5 @@ public class BlockUrn extends BlockBase
     public BlockUrn(String name, Material material)
     {
         super(name, material);
-
     }
 }

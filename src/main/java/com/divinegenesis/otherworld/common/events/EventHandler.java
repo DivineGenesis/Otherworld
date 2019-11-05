@@ -6,6 +6,7 @@ import com.divinegenesis.otherworld.common.helpers.HealthHelper;
 import com.divinegenesis.otherworld.common.item.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -69,12 +70,9 @@ public class EventHandler
     {
         PlayerEntity player = event.getPlayer();
         PlayerEntity old = event.getOriginal();
-
         UUID uuid = player.getUniqueID();
 
-
-        //player.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
-         //   .setBaseValue(old.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue());
+        HealthHelper.giveBackMyAttributes(old, player);
 
         if(event.isWasDeath() && returnList.containsKey(uuid))
         {

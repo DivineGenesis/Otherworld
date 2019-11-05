@@ -1,8 +1,6 @@
 buildscript {
     repositories {
-        maven {
-            url = 'https://files.minecraftforge.net/maven'
-        }
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
     }
@@ -11,15 +9,14 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'com.divinegenesis.otherworld' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'otherworld'
+version = "${mod_version}"
+group =  "${mod_group}"
+archivesBaseName = "${mod_name}"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
     mappings channel: 'snapshot', version: '20190719-1.14.3'
@@ -28,10 +25,7 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
             mods {
@@ -44,10 +38,7 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
             mods {
@@ -60,10 +51,7 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
             args '--mod', 'otherworld', '--all', '--output', file('src/generated/resources/')
@@ -80,36 +68,35 @@ sourceSets.main.resources { srcDir 'src/generated/resources'}
 
 repositories {
     maven {
-        // location of the maven that hosts JEI files
+        // JEI
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
     maven {
-        // location of a maven mirror for JEI files, as a fallback
+        //JEI fallback
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
     maven { url = "https://maven.theillusivec4.top/" }
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.76'
+    minecraft "net.minecraftforge:forge:${forge_version}"
 
     //JEI
-    compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.13")
+    compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
 
     //CURIOS
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.1")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.5.1:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-${curios_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-${curios_version}:api")
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
-            "Specification-Title": "examplemod",
+            "Specification-Title": "${mod_name}",
             "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"examplemodsareus",
@@ -118,10 +105,18 @@ jar {
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// we define a custom artifact that is sourced from the reobfJar output task
-// and then declare that to be published
-// Note you'll need to add a repository here
+processResources {
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+        expand 'version': project.version, 'mod_id' : mod_id, 'mod_name': mod_name, 'mod_url': mod_url, 'mod_author': mod_author, 'mod_description': mod_description
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'META-INF/mods.toml'
+    }
+}
+
 def reobfFile = file("$buildDir/reobfJar/output.jar")
 def reobfArtifact = artifacts.add('default', reobfFile) {
     type 'jar'

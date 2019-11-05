@@ -48,6 +48,18 @@ public class HealthHelper
         return false;
     }
 
+    public static void giveBackMyAttributes(PlayerEntity old, PlayerEntity playerEntity)
+    {
+        IAttributeInstance instance = old.getAttribute(SharedMonsterAttributes.MAX_HEALTH);
+        IAttributeInstance instance1 = playerEntity.getAttribute(SharedMonsterAttributes.MAX_HEALTH);
+
+        if(instance.getModifier(HealthType.LIFE_CRYSTAL.uuid) != null)
+            instance1.applyModifier(instance.getModifier(HealthType.LIFE_CRYSTAL.uuid));
+
+        if(instance.getModifier(HealthType.LIFE_FRUIT.uuid) != null)
+            instance1.applyModifier(instance.getModifier(HealthType.LIFE_FRUIT.uuid));
+    }
+
     public enum HealthType
     {
         LIFE_CRYSTAL("life_crystal", "c0305fb6-512f-40b6-ad86-822d0186866b", 20),
@@ -66,6 +78,10 @@ public class HealthHelper
 
         public int getMaxHealth() {
             return maxHealth;
+        }
+
+        public UUID getUuid() {
+            return uuid;
         }
     }
 }
