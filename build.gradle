@@ -19,7 +19,7 @@ archivesBaseName = "${mod_name}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: "${mcp_version}"
 
     runs {
         client {
@@ -95,18 +95,17 @@ jar {
     manifest {
         attributes([
             "Specification-Title": "${mod_name}",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
+            "Specification-Vendor": "${mod_author}",
+            "Specification-Version": "${version}",
+            "Implementation-Title": "${mod_name}",
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
+            "Implementation-Vendor" :"${mod_author}",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
 processResources {
-
     from(sourceSets.main.resources.srcDirs) {
         include 'META-INF/mods.toml'
         expand 'version': project.version, 'mod_id' : mod_id, 'mod_name': mod_name, 'mod_url': mod_url, 'mod_author': mod_author, 'mod_description': mod_description
