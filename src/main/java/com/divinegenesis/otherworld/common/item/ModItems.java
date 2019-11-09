@@ -23,6 +23,8 @@ public class ModItems
         CLOUD_IN_BOTTLE = new ItemBase("cloud_in_a_bottle", new Item.Properties().maxStackSize(1)),
         HEART = new ItemLifeCrystal("life_crystal"),
         LIFE_FRUIT = new ItemLifeFruit("life_fruit"),
-        MIMIC_CORE = new ItemBase("mimic_core");
+        MIMIC_CORE = new ItemBase("mimic_core"),
+        WAND = new ItemWand("wand"),
+        RECALL_POTION = new ItemRecallPotion("recall_potion");
 
 }

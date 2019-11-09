@@ -14,6 +14,15 @@ public class BlockBase extends Block
         ModBlocks.BLOCKS.add(this);
     }
 
+    public BlockBase(String name, Properties properties)
+    {
+        super(properties);
+        this.setRegistryName(name);
+
+        ModBlocks.BLOCKS.add(this);
+    }
+
+
     public BlockBase()
     {
         super(Block.Properties.create(Material.BAMBOO));

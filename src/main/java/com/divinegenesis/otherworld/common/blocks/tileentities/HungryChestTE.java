@@ -1,15 +1,21 @@
 package com.divinegenesis.otherworld.common.blocks.tileentities;
 
 import com.divinegenesis.otherworld.common.ModTileEntities;
+import net.minecraft.block.ChestBlock;
+import net.minecraft.client.renderer.ChestRenderer;
+import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.ChestTileEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
@@ -17,9 +23,12 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class HungryChestTE extends ChestTileEntity implements ITickableTileEntity
+import java.util.List;
+
+public class HungryChestTE extends TileEntity implements ITickableTileEntity
 {
     private LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
+    private int range = 3;
 
     public HungryChestTE() {
         super(ModTileEntities.HUNGRY_CHEST);
@@ -32,19 +41,51 @@ public class HungryChestTE extends ChestTileEntity implements ITickableTileEntit
         {
             handler.ifPresent(h ->
             {
-                AxisAlignedBB loc = new AxisAlignedBB(pos.getX()-3, pos.getY()-3, pos.getZ()-3, pos.getX()+3, pos.getY()+3, pos.getZ()+3);
-                if( world.getEntitiesWithinAABB(ItemEntity.class, loc).isEmpty())
+                AxisAlignedBB aoe = new AxisAlignedBB(
+                        pos.getX()-range,
+                        pos.getY()-range,
+                        pos.getZ()-range,
+                        pos.getX()+range,
+                        pos.getY()+range,
+                        pos.getZ()+range);
+                List<ItemEntity> list = world.getEntitiesWithinAABB(ItemEntity.class, aoe);
+
+                //if no items are in range
+                if( list.isEmpty() )
                     return;
 
-                world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1f, 1f);
-                //world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 1f, 1f, false);
-                ItemEntity entity = world.getEntitiesWithinAABB(ItemEntity.class, loc).get(0);
-                ItemStack i = entity.getItem();
-                for(int x = 0; x < h.getSlots(); x++)
+                //finds next item that can be stored
+                for(ItemEntity e : list)
                 {
-                    entity.setItem(ItemStack.EMPTY);
-                    i = h.insertItem(x, i, false);
-                    if (i.isEmpty()) return;
+                    ItemStack stack = e.getItem();
+                    for(int i = 0; i < h.getSlots(); i++)
+                    {
+                        //if item can be put into slot
+                        ItemStack returnStack = h.insertItem(i, stack, true);
+                        if(returnStack.getCount() != stack.getCount())
+                        {
+                            e.setItem(h.insertItem(i, stack, false));
+
+                            System.out.println(h.getSlots() + " " +!returnStack.isEmpty() + " " +i);
+
+                            //if the fullstack went in
+                            if(returnStack.isEmpty())
+                            {
+                                world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1f, 1f);
+                                return;
+                            }
+
+                            //if has returnstack AND last slot then burp..
+                            if(!returnStack.isEmpty() && i == h.getSlots()-1)
+                            {
+                                System.out.println("FULL");
+                                world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 1f, 1f);
+                                return;
+                            }
+                        }
+
+                        ChestTileEntityRenderer
+                    }
                 }
             });
         }
@@ -89,4 +130,5 @@ public class HungryChestTE extends ChestTileEntity implements ITickableTileEntit
             }
         };
     }
+
 }

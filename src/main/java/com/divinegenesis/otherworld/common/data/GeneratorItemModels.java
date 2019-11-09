@@ -19,7 +19,9 @@ public class GeneratorItemModels extends ItemModelProvider
     @Override
     protected void registerModels()
     {
-        registerBlockModel(ModBlocks.GREATWOOD_PLANK);
+        //registerBlockModel(ModBlocks.GREATWOOD_PLANK);
+        ModBlocks.BLOCKS.forEach(block -> registerBlockModel(block));
+
     }
 
     private void registerBlockModel(Block block) {

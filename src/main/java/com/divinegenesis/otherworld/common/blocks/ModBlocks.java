@@ -5,7 +5,10 @@ import com.divinegenesis.otherworld.common.blocks.types.BlockBase;
 import com.divinegenesis.otherworld.common.blocks.types.BlockHungryChest;
 import com.divinegenesis.otherworld.common.blocks.types.BlockPedestal;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.common.property.Properties;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,7 +18,6 @@ import java.util.List;
 
 public class ModBlocks
 {
-
     public static final List<Block> BLOCKS = new ArrayList<Block>();
     public static final DeferredRegister<Block> BLOCK_REGISTRY = new DeferredRegister<>(ForgeRegistries.BLOCKS, Otherworld.MODID);
     public static final Block
@@ -25,7 +27,7 @@ public class ModBlocks
         SILVERWOOD_LEAVES = new BlockBase("silverwood_leaves", Material.LEAVES),
         SILVERWOOD_SAPLING = new BlockBase("silverwood_sapling", Material.PLANTS),
         GREATWOOD_LOG = new BlockBase("greatwood_log", Material.WOOD),
-        GREATWOOD_PLANK = new BlockBase("greatwood_plank", Material.WOOD),
+        GREATWOOD_PLANK = new BlockBase("greatwood_plank", Block.Properties.create(Material.WOOD).sound(SoundType.WOOD)),
         GREATWOOD_LEAVES = new BlockBase("greatwood_leaves", Material.LEAVES),
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
         ARCANE_PEDESTAL = new BlockPedestal("arcane_pedestal", Material.ROCK),

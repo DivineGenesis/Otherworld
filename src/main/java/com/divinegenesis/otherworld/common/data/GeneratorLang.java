@@ -28,6 +28,7 @@ public class GeneratorLang extends LanguageProvider
         add(HEART, "Life Crystal");
         add(LIFE_FRUIT, "Life Fruit");
         add(MAGIC_MIRROR, "Magical Mirror");
+        add(RECALL_POTION,"Recall Potion");
         add(CLOUD_IN_BOTTLE, "Cloud in a Bottle");
         add(ENDER_POUCH, "Enderpouch");
         add(KRONORIUM, "Kronorium");
@@ -35,7 +36,10 @@ public class GeneratorLang extends LanguageProvider
         add("item.otherworld.ichor_bucket", "Ichorium Bucket");
 
         //blocks
+        add(ModBlocks.ICHORIUM_ORE, "Ichorium Ore");
+        add(ModBlocks.URN, "Urn");
         add(ModBlocks.HUNGRY_CHEST, "Hungry Chest");
+        add(ModBlocks.GREATWOOD_PLANK, "Greatwood Plank");
 
         //fluid
         add("fluid.otherworld.ichor_fluid", "Ichorium Essence");

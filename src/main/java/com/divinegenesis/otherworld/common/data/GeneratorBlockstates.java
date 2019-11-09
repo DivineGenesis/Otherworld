@@ -1,9 +1,13 @@
 package com.divinegenesis.otherworld.common.data;
 
+
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 
 public class GeneratorBlockstates extends BlockStateProvider
@@ -17,8 +21,15 @@ public class GeneratorBlockstates extends BlockStateProvider
     @Override
     protected void registerStatesAndModels()
     {
-        simpleBlock(ModBlocks.GREATWOOD_PLANK);
+        buildCubeAll(ModBlocks.GREATWOOD_PLANK);
+        //ModBlocks.BLOCKS.forEach(block -> buildCubeAll(block));
 
+    }
+
+    private void buildCubeAll(Block block) {
+        getVariantBuilder(block).forAllStates(state ->
+                ConfiguredModel.builder().modelFile(cubeAll(block)).build()
+        );
     }
 
 }

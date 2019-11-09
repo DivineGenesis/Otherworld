@@ -4,7 +4,6 @@ import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.item.ModItems;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -22,6 +21,7 @@ public class GeneratorRecipes extends RecipeProvider
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer)
     {
+
         ShapedRecipeBuilder.shapedRecipe(ModBlocks.HUNGRY_CHEST)
                 .patternLine("###")
                 .patternLine("#A#")
