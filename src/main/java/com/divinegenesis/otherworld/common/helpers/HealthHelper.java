@@ -65,7 +65,7 @@ public class HealthHelper
         LIFE_CRYSTAL("life_crystal", "c0305fb6-512f-40b6-ad86-822d0186866b", 20),
         LIFE_FRUIT("life_fruit", "11d0e6b9-ed5c-411d-93fd-9afe8a4e832e", 20);
 
-        private HealthType(String name, String id, int max)
+        HealthType(String name, String id, int max)
         {
             this.name = name;
             uuid = UUID.fromString(id);

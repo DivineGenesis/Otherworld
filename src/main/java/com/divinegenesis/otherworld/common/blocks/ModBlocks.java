@@ -1,17 +1,11 @@
 package com.divinegenesis.otherworld.common.blocks;
 
-import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.blocks.types.BlockBase;
 import com.divinegenesis.otherworld.common.blocks.types.BlockHungryChest;
 import com.divinegenesis.otherworld.common.blocks.types.BlockPedestal;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.property.Properties;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +13,6 @@ import java.util.List;
 public class ModBlocks
 {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
-    public static final DeferredRegister<Block> BLOCK_REGISTRY = new DeferredRegister<>(ForgeRegistries.BLOCKS, Otherworld.MODID);
     public static final Block
         ICHORIUM_ORE = new BlockBase("ichorium_ore", Material.ROCK),
         URN = new BlockBase("urn", Material.ROCK),
@@ -32,6 +25,4 @@ public class ModBlocks
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
         ARCANE_PEDESTAL = new BlockPedestal("arcane_pedestal", Material.ROCK),
         HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD);
-
-    //public static final RegistryObject<Block> GREATWOOD_PLANK = BLOCK_REGISTRY.register("greatwood_plank", BlockBase::new);
 }

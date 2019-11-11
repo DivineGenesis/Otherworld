@@ -1,6 +1,6 @@
 package com.divinegenesis.otherworld.common.item.types;
 
-import com.divinegenesis.otherworld.OWGroup;
+import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.item.ModItems;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -19,13 +19,13 @@ public class ItemBase extends Item
 
     public ItemBase(String name)
     {
-        super(new Properties().group(OWGroup.GROUP));
+        super(new Properties().group(Otherworld.OWTAB));
         setRegistryName(name);
         ModItems.ITEMS.add(this);
     }
     public ItemBase(String name, boolean hasTooltip)
     {
-        super(new Properties().group(OWGroup.GROUP));
+        super(new Properties().group(Otherworld.OWTAB));
         setRegistryName(name);
         hasTooltip = hasTooltip;
         ModItems.ITEMS.add(this);
@@ -33,7 +33,7 @@ public class ItemBase extends Item
 
     public ItemBase(String name, Properties properties)
     {
-        super(properties.group(OWGroup.GROUP));
+        super(properties.group(Otherworld.OWTAB));
         setRegistryName(name);
         ModItems.ITEMS.add(this);
     }

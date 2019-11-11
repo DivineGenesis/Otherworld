@@ -1,21 +1,15 @@
 package com.divinegenesis.otherworld.common.blocks.tileentities;
 
 import com.divinegenesis.otherworld.common.ModTileEntities;
-import net.minecraft.block.ChestBlock;
-import net.minecraft.client.renderer.ChestRenderer;
-import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
@@ -78,13 +72,10 @@ public class HungryChestTE extends TileEntity implements ITickableTileEntity
                             //if has returnstack AND last slot then burp..
                             if(!returnStack.isEmpty() && i == h.getSlots()-1)
                             {
-                                System.out.println("FULL");
                                 world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 1f, 1f);
                                 return;
                             }
                         }
-
-                        ChestTileEntityRenderer
                     }
                 }
             });

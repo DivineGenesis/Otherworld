@@ -1,6 +1,5 @@
 package com.divinegenesis.otherworld.common.item.types;
 
-import com.divinegenesis.otherworld.OWGroup;
 import com.divinegenesis.otherworld.Otherworld;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,15 +21,6 @@ public class ItemWand extends ItemBase
     {
         super(name);
     }
-    //CAPS
-    //CORE
-    //FOCI
-
-    //CORES
-    // OAK, SPRUCE, BIRCH, DARK_OAK, JUNGLE, SOULBONE, GREATWOOD, SILVERWOOD, ICHOR
-
-    //CAPS
-    // IRON, GOLD, COPPER
 
     @Override
     public ITextComponent getDisplayName(ItemStack stack) {
@@ -53,7 +43,7 @@ public class ItemWand extends ItemBase
     @Override
     public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items)
     {
-        if(group == OWGroup.GROUP)
+        if(group == Otherworld.OWTAB)
         {
             ItemStack base = new ItemStack(this);
             setCap(CapTypes.Iron, base);

@@ -16,52 +16,32 @@ public class JEIOtherworldPlugin implements IModPlugin
     }
 
     @Override
-    public void registerItemSubtypes(ISubtypeRegistration registration) {
-
-    }
+    public void registerItemSubtypes(ISubtypeRegistration registration) {}
 
     @Override
-    public void registerIngredients(IModIngredientRegistration registration) {
-
-    }
+    public void registerIngredients(IModIngredientRegistration registration) {}
 
     @Override
-    public void registerCategories(IRecipeCategoryRegistration registration) {
-
-    }
+    public void registerCategories(IRecipeCategoryRegistration registration) {}
 
     @Override
-    public void registerVanillaCategoryExtensions(IVanillaCategoryExtensionRegistration registration) {
-
-    }
+    public void registerVanillaCategoryExtensions(IVanillaCategoryExtensionRegistration registration) {}
 
     @Override
-    public void registerRecipes(IRecipeRegistration registration) {
-
-    }
+    public void registerRecipes(IRecipeRegistration registration) {}
 
     @Override
-    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-
-    }
+    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {}
 
     @Override
-    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-
-    }
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {}
 
     @Override
-    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-
-    }
+    public void registerGuiHandlers(IGuiHandlerRegistration registration) {}
 
     @Override
-    public void registerAdvanced(IAdvancedRegistration registration) {
-
-    }
+    public void registerAdvanced(IAdvancedRegistration registration) {}
 
     @Override
-    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
-
-    }
+    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {}
 }

@@ -23,9 +23,9 @@ public class BlockBase extends Block
     }
 
 
-    public BlockBase()
+    /*public BlockBase()
     {
         super(Block.Properties.create(Material.BAMBOO));
-    }
+    }*/
 
 }

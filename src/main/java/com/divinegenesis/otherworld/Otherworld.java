@@ -2,6 +2,8 @@ package com.divinegenesis.otherworld;
 
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.fluid.ModFluids;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
@@ -20,8 +22,13 @@ import top.theillusivec4.curios.api.imc.CurioIMCMessage;
 public class Otherworld
 {
     public static final String MODID = "otherworld";
-
     public static final Logger LOGGER = LogManager.getLogger(MODID);
+    public static final ItemGroup OWTAB = new ItemGroup(MODID) {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModBlocks.HUNGRY_CHEST);
+        }
+    };
 
     public Otherworld()
     {
@@ -33,7 +40,6 @@ public class Otherworld
 
         MinecraftForge.EVENT_BUS.register(this);
         ModFluids fluids = new ModFluids();
-        ModBlocks.BLOCK_REGISTRY.register(event);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event){}

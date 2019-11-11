@@ -1,6 +1,5 @@
 package com.divinegenesis.otherworld.common.events;
 
-import com.divinegenesis.otherworld.OWGroup;
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.*;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
@@ -39,7 +38,7 @@ public class RegistryEvents
     {
         Otherworld.LOGGER.info("Registering blockitems...");
         ModBlocks.BLOCKS.forEach(block -> event.getRegistry()
-                .register(new BlockItem(block, new Item.Properties().group(OWGroup.GROUP)).setRegistryName(block.getRegistryName())));
+                .register(new BlockItem(block, new Item.Properties().group(Otherworld.OWTAB)).setRegistryName(block.getRegistryName())));
 
         Otherworld.LOGGER.info("Registering items...");
         ModItems.ITEMS.forEach(item -> event.getRegistry().register(item));

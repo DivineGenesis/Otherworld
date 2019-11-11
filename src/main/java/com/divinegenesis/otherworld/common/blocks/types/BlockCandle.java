@@ -6,9 +6,9 @@ import net.minecraft.util.NonNullList;
 
 public class BlockCandle extends BlockBase
 {
-    public BlockCandle()
+    public BlockCandle(String name, Properties properties)
     {
-
+        super(name, properties);
     }
 
     @Override

@@ -4,7 +4,6 @@ package com.divinegenesis.otherworld.common.data;
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -22,8 +21,6 @@ public class GeneratorBlockstates extends BlockStateProvider
     protected void registerStatesAndModels()
     {
         buildCubeAll(ModBlocks.GREATWOOD_PLANK);
-        //ModBlocks.BLOCKS.forEach(block -> buildCubeAll(block));
-
     }
 
     private void buildCubeAll(Block block) {

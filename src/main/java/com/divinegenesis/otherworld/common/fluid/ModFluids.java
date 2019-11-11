@@ -1,6 +1,5 @@
 package com.divinegenesis.otherworld.common.fluid;
 
-import com.divinegenesis.otherworld.OWGroup;
 import com.divinegenesis.otherworld.Otherworld;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowingFluidBlock;
@@ -32,7 +31,7 @@ public class ModFluids
     public static RegistryObject<FlowingFluid> ichor_fluid = FLUIDS.register("ichor_fluid", () -> new IchorFluid.Source(ModFluids.ichor_fluid_properties));
     public static RegistryObject<FlowingFluid> ichor_fluid_flowing = FLUIDS.register("ichor_fluid_flowing", () -> new IchorFluid.Flowing(ModFluids.ichor_fluid_properties));
     public static RegistryObject<FlowingFluidBlock> ichor_fluid_block = BLOCKS.register("ichor_fluid_block", () -> new FlowingFluidBlock(ichor_fluid, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
-    public static RegistryObject<Item> ichor_fluid_bucket = ITEMS.register("ichor_bucket", () -> new BucketItem(ichor_fluid, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(OWGroup.GROUP)));
+    public static RegistryObject<Item> ichor_fluid_bucket = ITEMS.register("ichor_bucket", () -> new BucketItem(ichor_fluid, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(Otherworld.OWTAB)));
     public static final IchorFluid.Properties ichor_fluid_properties = new IchorFluid.Properties(ichor_fluid, ichor_fluid_flowing, FluidAttributes.builder(new ResourceLocation(""), new ResourceLocation("")).color(0xffcc4af5).density(1500).viscosity(1500).temperature(310)).explosionResistance(100.0F).bucket(ichor_fluid_bucket).block(ichor_fluid_block);
 
     public ModFluids() {

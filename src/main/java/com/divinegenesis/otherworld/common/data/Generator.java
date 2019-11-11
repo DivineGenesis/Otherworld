@@ -15,6 +15,7 @@ public class Generator
     public static void gatherData(GatherDataEvent event)
     {
         DataGenerator gen = event.getGenerator();
+
         if(event.includeServer())
         {
             gen.addProvider(new GeneratorLoot(gen));
@@ -22,20 +23,13 @@ public class Generator
 
         }
 
+        if(event.includeClient())
+        {
+            ExistingFileHelper helper = event.getExistingFileHelper();
 
-
-
-        //gen.addProvider(new GeneratorAdvancements(gen));
-        //gen.addProvider(new GeneratorTags(gen, ));
-
-
-            if(event.includeClient())
-            {
-                ExistingFileHelper helper = event.getExistingFileHelper();
-                gen.addProvider(new GeneratorBlockstates(gen, helper));
-                gen.addProvider(new GeneratorItemModels(gen, helper));
-
-                gen.addProvider(new GeneratorLang(gen));
-            }
+            gen.addProvider(new GeneratorBlockstates(gen, helper));
+            gen.addProvider(new GeneratorItemModels(gen, helper));
+            gen.addProvider(new GeneratorLang(gen));
+        }
     }
 }
