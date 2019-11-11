@@ -11,3 +11,6 @@
 
 ## Contributions
 Contributing to this project is greatly appreciated. This can include PRs or just simple ideas/suggestions. If you do have ideas/suggestions please take it to our discord :)
+
+## License
+[License MIT](LICENSE)
