@@ -19,7 +19,7 @@ public class PurgatoryDimensionType extends ModDimension
 
     public static DimensionType getDimensionType()
     {
-        return DimensionType.byName(new ResourceLocation(Otherworld.MODID, "purgatory_dimension"));
+        return DimensionType.byName(new ResourceLocation(Otherworld.MODID, "purgatory"));
     }
 
     @Override

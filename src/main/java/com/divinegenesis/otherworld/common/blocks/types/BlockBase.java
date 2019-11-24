@@ -2,6 +2,7 @@ package com.divinegenesis.otherworld.common.blocks.types;
 
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.GlassBlock;
 import net.minecraft.block.material.Material;
 
 public class BlockBase extends Block
@@ -21,7 +22,6 @@ public class BlockBase extends Block
 
         ModBlocks.BLOCKS.add(this);
     }
-
 
     /*public BlockBase()
     {

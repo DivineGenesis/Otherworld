@@ -1,16 +1,30 @@
 package com.divinegenesis.otherworld.common.world.dimensions;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.mojang.datafixers.Dynamic;
+import com.mojang.datafixers.types.JsonOps;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.nbt.NBTDynamicOps;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.provider.*;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.EndDimension;
+import net.minecraft.world.dimension.OverworldDimension;
 import net.minecraft.world.gen.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -19,8 +33,6 @@ import javax.annotation.Nullable;
 
 public class PurgatoryDimension extends Dimension
 {
-
-
     public PurgatoryDimension(World world, DimensionType type)
     {
         super(world, type);
@@ -28,67 +40,61 @@ public class PurgatoryDimension extends Dimension
 
     @Override
     public ChunkGenerator<?> createChunkGenerator() {
+    EndGenerationSettings endgenerationsettings = ChunkGeneratorType.FLOATING_ISLANDS.createSettings();
+      endgenerationsettings.setDefaultBlock(Blocks.END_STONE.getDefaultState());
+      endgenerationsettings.setDefaultFluid(Blocks.AIR.getDefaultState());
+      endgenerationsettings.setSpawnPos(this.getSpawnCoordinate());
+      return ChunkGeneratorType.FLOATING_ISLANDS.create(this.world, BiomeProviderType.THE_END.create(BiomeProviderType.THE_END.createSettings().setSeed(this.world.getSeed())), endgenerationsettings);
+}
 
-        return null;
-    }
-
-    @Nullable
     @Override
+    @Nullable
     public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {
-        for (int i = chunkPosIn.getXStart(); i <= chunkPosIn.getXEnd(); ++i) {
-            for (int j = chunkPosIn.getZStart(); j <= chunkPosIn.getZEnd(); ++j) {
+        for(int i = chunkPosIn.getXStart(); i <= chunkPosIn.getXEnd(); ++i) {
+            for(int j = chunkPosIn.getZStart(); j <= chunkPosIn.getZEnd(); ++j) {
                 BlockPos blockpos = this.findSpawn(i, j, checkValid);
                 if (blockpos != null) {
                     return blockpos;
                 }
             }
         }
+
         return null;
     }
 
-        @Nullable
-        public BlockPos findSpawn(int posX, int posZ, boolean checkValid)
-        {
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(posX, 0, posZ);
-            Biome biome = this.world.getBiome(blockpos$mutableblockpos);
-            BlockState blockstate = biome.getSurfaceBuilderConfig().getTop();
-            if (checkValid && !blockstate.getBlock().isIn(BlockTags.VALID_SPAWN))
-            {
+    /** Copied from OverworldDimension */
+    @Override
+    @Nullable
+    public BlockPos findSpawn(int posX, int posZ, boolean checkValid) {
+        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(posX, 0, posZ);
+        Biome biome = this.world.getBiome(blockpos$mutableblockpos);
+        BlockState blockstate = biome.getSurfaceBuilderConfig().getTop();
+        if (checkValid && !blockstate.getBlock().isIn(BlockTags.VALID_SPAWN)) {
+            return null;
+        } else {
+            Chunk chunk = this.world.getChunk(posX >> 4, posZ >> 4);
+            int i = chunk.getTopBlockY(Heightmap.Type.MOTION_BLOCKING, posX & 15, posZ & 15);
+            if (i < 0) {
                 return null;
-            }
-            else
-            {
-                Chunk chunk = this.world.getChunk(posX >> 4, posZ >> 4);
-                int i = chunk.getTopBlockY(Heightmap.Type.MOTION_BLOCKING, posX & 15, posZ & 15);
-                if (i < 0)
-                {
-                    return null;
-                }
-                else if (chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE, posX & 15, posZ & 15) > chunk.getTopBlockY(Heightmap.Type.OCEAN_FLOOR, posX & 15, posZ & 15))
-                {
-                    return null;
-                }
-                else
-                {
-                    for(int j = i + 1; j >= 0; --j)
-                    {
-                        blockpos$mutableblockpos.setPos(posX, j, posZ);
-                        BlockState blockstate1 = this.world.getBlockState(blockpos$mutableblockpos);
-                        if (!blockstate1.getFluidState().isEmpty())
-                        {
-                            break;
-                        }
-
-                        if (blockstate1.equals(blockstate))
-                        {
-                            return blockpos$mutableblockpos.up().toImmutable();
-                        }
+            } else if (chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE, posX & 15, posZ & 15) > chunk.getTopBlockY(Heightmap.Type.OCEAN_FLOOR, posX & 15, posZ & 15)) {
+                return null;
+            } else {
+                for(int j = i + 1; j >= 0; --j) {
+                    blockpos$mutableblockpos.setPos(posX, j, posZ);
+                    BlockState blockstate1 = this.world.getBlockState(blockpos$mutableblockpos);
+                    if (!blockstate1.getFluidState().isEmpty()) {
+                        break;
                     }
 
-                    return null;
+                    if (blockstate1.equals(blockstate)) {
+                        return blockpos$mutableblockpos.up().toImmutable();
+                    }
                 }
+
+                return null;
             }
         }
+    }
 
         public float calculateCelestialAngle(long worldTime, float partialTicks)
         {

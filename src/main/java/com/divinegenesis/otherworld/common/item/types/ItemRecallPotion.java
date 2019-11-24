@@ -55,4 +55,8 @@ public class ItemRecallPotion extends ItemBase
         return  32;
     }
 
+    @Override
+    public boolean hasEffect(ItemStack p_77636_1_) {
+        return true;
+    }
 }

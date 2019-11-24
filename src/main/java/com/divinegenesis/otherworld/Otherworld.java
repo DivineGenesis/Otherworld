@@ -2,6 +2,7 @@ package com.divinegenesis.otherworld;
 
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.fluid.ModFluids;
+import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +41,7 @@ public class Otherworld
 
         MinecraftForge.EVENT_BUS.register(this);
         ModFluids fluids = new ModFluids();
+        ModDimUtil.DIMENSIONS.register(event);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event){}

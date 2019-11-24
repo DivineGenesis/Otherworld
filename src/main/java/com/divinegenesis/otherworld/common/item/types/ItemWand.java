@@ -17,8 +17,7 @@ import java.util.List;
 
 public class ItemWand extends ItemBase
 {
-    public ItemWand(String name)
-    {
+    public ItemWand(String name) {
         super(name);
     }
 
@@ -74,7 +73,7 @@ public class ItemWand extends ItemBase
 
     public static CapTypes getCap(ItemStack stack) {
         if (!stack.hasTag() || !stack.getTag().contains(Components.Cap.name()))
-            stack.getOrCreateTag().putString(Components.Cap.name(), CapTypes.Gold.name());
+            stack.getOrCreateTag().putString(Components.Cap.name(), CapTypes.Iron.name());
         return CapTypes.valueOf(stack.getTag().getString(Components.Cap.name()));
     }
 

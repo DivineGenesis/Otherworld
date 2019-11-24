@@ -13,7 +13,6 @@ import java.util.List;
 public class ModItems
 {
     public static final List<Item> ITEMS = new ArrayList<Item>();
-    public static final DeferredRegister<Item> ITEMSA = new DeferredRegister<>(ForgeRegistries.ITEMS, Otherworld.MODID);
     public static final Item
         ENDER_POUCH = new ItemEnderPouch("ender_pouch"),
         KRONORIUM = new ItemKronorium(),
