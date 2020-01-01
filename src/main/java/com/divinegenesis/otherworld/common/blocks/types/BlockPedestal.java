@@ -15,8 +15,8 @@ public class BlockPedestal extends BlockBase {
         super(name, material);
     }
 
-    @Override
-    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
-    }
+//    @Override
+//    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+//        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+//    }
 }

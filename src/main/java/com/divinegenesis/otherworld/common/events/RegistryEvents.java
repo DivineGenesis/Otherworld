@@ -1,28 +1,22 @@
 package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.*;
+import com.divinegenesis.otherworld.common.ModSounds;
+import com.divinegenesis.otherworld.common.ModTileEntities;
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
 import com.divinegenesis.otherworld.common.enchants.ModEnchants;
 import com.divinegenesis.otherworld.common.item.ModItems;
-import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
-import com.divinegenesis.otherworld.common.world.dimensions.PurgatoryDimensionType;
-import io.netty.buffer.Unpooled;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.dimension.DimensionType;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.ModDimension;
-import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -30,7 +24,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryEvents
 {
-    public static final PurgatoryDimensionType PURGATORY = new PurgatoryDimensionType(new ResourceLocation(Otherworld.MODID, "purgatory_dimension"));
+    //public static final PurgatoryDimensionType PURGATORY = new PurgatoryDimensionType(new ResourceLocation(Otherworld.MODID, "purgatory_dimension"));
 
     @SubscribeEvent
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event)

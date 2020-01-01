@@ -2,7 +2,6 @@ package com.divinegenesis.otherworld.common.blocks.types;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -25,10 +24,10 @@ public class BlockUrn extends BlockBase
         return makeCuboidShape(3, 0, 3, 13, 12, 13);
     }
 
-    @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
-    }
+//    @Override
+//    public BlockRenderLayer getRenderLayer() {
+//        return BlockRenderLayer.TRANSLUCENT;
+//    }
 
     @Override
     public int getOpacity(BlockState p_200011_1_, IBlockReader p_200011_2_, BlockPos p_200011_3_) {

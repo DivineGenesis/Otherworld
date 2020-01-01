@@ -19,41 +19,41 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
-@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-public class ModDimUtil
-{
-    public static final DeferredRegister<ModDimension> DIMENSIONS = new DeferredRegister<>(ForgeRegistries.MOD_DIMENSIONS, Otherworld.MODID);
-
-    public static DimensionType PURGATORY_DIMENSION;
-    public static final RegistryObject<ModDimension> OTHERWORLD_MOD_DIMENSION = register(
-            "purgatory", ModDimUtil::dimFactory);
-
-    private static ModDimension dimFactory() {
-        return new ModDimension() {
-            @Override
-            public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
-                return PurgatoryDimension::new;
-            }
-        };
-    }
-
-    private static RegistryObject<ModDimension> register(final String name, final Supplier<ModDimension> sup) {
-        return DIMENSIONS.register(name, sup);
-    }
-
-    @Mod.EventBusSubscriber(modid = Otherworld.MODID)
-    public static class EventDimensionType {
-        @SubscribeEvent
-        public static void onModDimensionRegister(final RegisterDimensionsEvent event) {
-            Otherworld.LOGGER.info("Just unleashing Purgatory, nothing to worry about here!");
-            ResourceLocation id = new ResourceLocation(Otherworld.MODID, "purgatory");
-            if (DimensionType.byName(id) == null) {
-                PURGATORY_DIMENSION = DimensionManager.registerDimension(id, OTHERWORLD_MOD_DIMENSION.get(), new PacketBuffer(Unpooled.buffer()), true);
-                //TROPICS_DIMENSION.setRegistryName(new ResourceLocation(Constants.MODID, "tropics"));
-                DimensionManager.keepLoaded(PURGATORY_DIMENSION, false);
-            } else {
-                PURGATORY_DIMENSION = DimensionType.byName(id);
-            }
-        }
-    }
-}
+//@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+//public class ModDimUtil
+//{
+//    public static final DeferredRegister<ModDimension> DIMENSIONS = new DeferredRegister<>(ForgeRegistries.MOD_DIMENSIONS, Otherworld.MODID);
+//
+//    public static DimensionType PURGATORY_DIMENSION;
+//    public static final RegistryObject<ModDimension> OTHERWORLD_MOD_DIMENSION = register(
+//            "purgatory", ModDimUtil::dimFactory);
+//
+//    private static ModDimension dimFactory() {
+//        return new ModDimension() {
+//            @Override
+//            public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
+//                return PurgatoryDimension::new;
+//            }
+//        };
+//    }
+//
+//    private static RegistryObject<ModDimension> register(final String name, final Supplier<ModDimension> sup) {
+//        return DIMENSIONS.register(name, sup);
+//    }
+//
+//    @Mod.EventBusSubscriber(modid = Otherworld.MODID)
+//    public static class EventDimensionType {
+//        @SubscribeEvent
+//        public static void onModDimensionRegister(final RegisterDimensionsEvent event) {
+//            Otherworld.LOGGER.info("Just unleashing Purgatory, nothing to worry about here!");
+//            ResourceLocation id = new ResourceLocation(Otherworld.MODID, "purgatory");
+//            if (DimensionType.byName(id) == null) {
+//                PURGATORY_DIMENSION = DimensionManager.registerDimension(id, OTHERWORLD_MOD_DIMENSION.get(), new PacketBuffer(Unpooled.buffer()), true);
+//                //TROPICS_DIMENSION.setRegistryName(new ResourceLocation(Constants.MODID, "tropics"));
+//                DimensionManager.keepLoaded(PURGATORY_DIMENSION, false);
+//            } else {
+//                PURGATORY_DIMENSION = DimensionType.byName(id);
+//            }
+//        }
+//    }
+//}

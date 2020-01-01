@@ -10,21 +10,21 @@ import net.minecraftforge.common.ModDimension;
 import java.util.function.BiFunction;
 
 
-public class PurgatoryDimensionType extends ModDimension
-{
-    public PurgatoryDimensionType(final ResourceLocation registryName)
-    {
-        this.setRegistryName(registryName);
-    }
-
-    public static DimensionType getDimensionType()
-    {
-        return DimensionType.byName(new ResourceLocation(Otherworld.MODID, "purgatory"));
-    }
-
-    @Override
-    public BiFunction<World, DimensionType, ? extends Dimension> getFactory()
-    {
-        return PurgatoryDimension::new;
-    }
-}
+//public class PurgatoryDimensionType extends ModDimension
+//{
+//    public PurgatoryDimensionType(final ResourceLocation registryName)
+//    {
+//        this.setRegistryName(registryName);
+//    }
+//
+//    public static DimensionType getDimensionType()
+//    {
+//        return DimensionType.byName(new ResourceLocation(Otherworld.MODID, "purgatory"));
+//    }
+//
+//    @Override
+//    public BiFunction<World, DimensionType, ? extends Dimension> getFactory()
+//    {
+//        return PurgatoryDimension::new;
+//    }
+//}

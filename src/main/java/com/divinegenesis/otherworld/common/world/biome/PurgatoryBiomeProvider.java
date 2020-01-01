@@ -16,30 +16,30 @@ import java.util.function.Supplier;
 public class PurgatoryBiomeProvider extends BiomeProvider {
 
 
-
-
-
-
-    @Override
-    public Biome getBiome(int i, int i1) {
-        return null;
+    protected PurgatoryBiomeProvider(Set<Biome> p_i225745_1_) {
+        super(p_i225745_1_);
     }
 
-    @Override
-    public Biome[] getBiomes(int i, int i1, int i2, int i3, boolean b) {
-        return new Biome[0];
-    }
-
-    @Override
-    public Set<Biome> getBiomesInSquare(int i, int i1, int i2) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public BlockPos findBiomePosition(int i, int i1, int i2, List<Biome> list, Random random) {
-        return null;
-    }
+//    @Override
+//    public Biome getBiome(int i, int i1) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Biome[] getBiomes(int i, int i1, int i2, int i3, boolean b) {
+//        return new Biome[0];
+//    }
+//
+//    @Override
+//    public Set<Biome> getBiomesInSquare(int i, int i1, int i2) {
+//        return null;
+//    }
+//
+//    @Nullable
+//    @Override
+//    public BlockPos findBiomePosition(int i, int i1, int i2, List<Biome> list, Random random) {
+//        return null;
+//    }
 
     @Override
     public boolean hasStructure(Structure<?> structure) {
@@ -48,6 +48,11 @@ public class PurgatoryBiomeProvider extends BiomeProvider {
 
     @Override
     public Set<BlockState> getSurfaceBlocks() {
+        return null;
+    }
+
+    @Override
+    public Biome func_225526_b_(int p_225526_1_, int p_225526_2_, int p_225526_3_) {
         return null;
     }
 }
