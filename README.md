@@ -1,16 +1,11 @@
+<h1 align=center>Otherworld 1.15.1</h1>
+ <p align=center>
+ <img alt="Discord" src="https://img.shields.io/discord/360327589287559178?color=green&label=Discord%20&style=for-the-badge">
+ <img alt="GitHub issues" src="https://img.shields.io/github/issues/DivineGenesis/Otherworld?color=red&style=for-the-badge">
+</p>
 
-![Discord](https://img.shields.io/discord/360327589287559178?label=Discord&style=flat-square)
-
-    This is still being in development! For more information on this project please check the wiki and/or join our discord page!
-
-# Otherworld 1.14.4
- A supernatural-type minecraft mod heavily influenced by Thaumcraft and Witchery brought to you by the DivineGenesis team!
-
-## Things in need of assistance
- - [ ] Textures/Models (I am horrible at being artistic)
+## Overview
+insert overview description here
 
 ## Contributions
 Contributing to this project is greatly appreciated. This can include PRs or just simple ideas/suggestions. If you do have ideas/suggestions please take it to our discord :)
-
-## License
-[License MIT](LICENSE)

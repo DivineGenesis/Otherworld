@@ -49,7 +49,10 @@ public class Otherworld
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("accessories").setEnabled(true).setSize(4).setHidden(false));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("head").setEnabled(true).setSize(1).setHidden(false));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("necklace").setEnabled(true).setSize(1).setHidden(false));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("body").setEnabled(true).setSize(1).setHidden(false));
+        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("feet").setEnabled(true).setSize(1).setHidden(false));
     }
 
     private void processIMC(final InterModProcessEvent event) {}
