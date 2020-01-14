@@ -2,6 +2,8 @@ package com.divinegenesis.otherworld;
 
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.fluid.ModFluids;
+import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
+import com.divinegenesis.otherworld.common.world.gen.WorldGenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,16 +45,16 @@ public class Otherworld
         //ModDimUtil.DIMENSIONS.register(event);
     }
 
-    private void onCommonSetup(final FMLCommonSetupEvent event){}
+    private void onCommonSetup(final FMLCommonSetupEvent event)
+    {
+        WorldGenManager.setupGenerator();
+    }
 
     private void onClientSetup(final FMLClientSetupEvent event){}
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("head").setEnabled(true).setSize(1).setHidden(false));
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("necklace").setEnabled(true).setSize(1).setHidden(false));
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("body").setEnabled(true).setSize(1).setHidden(false));
-        InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("feet").setEnabled(true).setSize(1).setHidden(false));
+        CuriosHelper.registerCuriosStuff();
     }
 
     private void processIMC(final InterModProcessEvent event) {}

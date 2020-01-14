@@ -58,8 +58,6 @@ public class SoulbindingEvents
         PlayerEntity old = event.getOriginal();
         UUID uuid = player.getUniqueID();
 
-        player.setSwimming(false);
-
         HealthHelper.giveBackMyAttributes(old, player);
 
         if(event.isWasDeath() && returnList.containsKey(uuid))

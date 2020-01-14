@@ -1,9 +1,6 @@
 package com.divinegenesis.otherworld.common.blocks;
 
-import com.divinegenesis.otherworld.common.blocks.types.BlockBase;
-import com.divinegenesis.otherworld.common.blocks.types.BlockHungryChest;
-import com.divinegenesis.otherworld.common.blocks.types.BlockPedestal;
-import com.divinegenesis.otherworld.common.blocks.types.BlockUrn;
+import com.divinegenesis.otherworld.common.blocks.types.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -26,5 +23,5 @@ public class ModBlocks
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
         ARCANE_PEDESTAL = new BlockPedestal("arcane_pedestal", Material.ROCK),
         HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD),
-        CRYSTAL_HEART = new BlockBase("crystal_heart", Material.ROCK);
+        CRYSTAL_HEART = new BlockCrystalHeart("crystal_heart", Material.ROCK);
 }
