@@ -29,10 +29,7 @@ public class GeneratorLang extends LanguageProvider
         add(LIFE_FRUIT, "Life Fruit");
         add(MAGIC_MIRROR, "Magical Mirror");
         add(RECALL_POTION,"Recall Potion");
-        add(CLOUD_IN_BOTTLE, "Cloud in a Bottle");
         add(ENDER_POUCH, "Enderpouch");
-        add(KRONORIUM, "Kronorium");
-        add(SCROLL_ADDITIONAL_ACCESSORY, "Scroll of Accessories"); //BAD NAME
         add("item.otherworld.ichor_bucket", "Ichorium Bucket");
 
         //blocks

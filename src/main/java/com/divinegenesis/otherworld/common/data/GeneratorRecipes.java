@@ -24,12 +24,11 @@ public class GeneratorRecipes extends RecipeProvider
 
         ShapedRecipeBuilder.shapedRecipe(ModBlocks.HUNGRY_CHEST)
                 .patternLine("###")
-                .patternLine("#A#")
+                .patternLine("# #")
                 .patternLine("###")
                 .key('#', ModBlocks.GREATWOOD_PLANK)
-                .key('A', ModItems.MIMIC_CORE)
                 .setGroup(Otherworld.MODID)
-                .addCriterion("mimic_core", InventoryChangeTrigger.Instance.forItems(ModItems.MIMIC_CORE))
+                .addCriterion("mimic_core", InventoryChangeTrigger.Instance.forItems(ModItems.HEART))
                 .build(consumer);
     }
 }

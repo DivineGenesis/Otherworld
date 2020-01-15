@@ -15,15 +15,10 @@ public class ModItems
     public static final List<Item> ITEMS = new ArrayList<Item>();
     public static final Item
         ENDER_POUCH = new ItemEnderPouch("ender_pouch"),
-        KRONORIUM = new ItemKronorium(),
         TOTEM_SOULBOUND = new ItemBase("totem_soulbound"),
-        SCROLL_ADDITIONAL_ACCESSORY = new ItemScrollAccessories("scroll_of_accessory"),
         MAGIC_MIRROR = new ItemMagicMirror("magic_mirror"),
-        CLOUD_IN_BOTTLE = new ItemBase("cloud_in_a_bottle", new Item.Properties().maxStackSize(1)),
         HEART = new ItemLifeCrystal("life_crystal"),
         LIFE_FRUIT = new ItemLifeFruit("life_fruit"),
-        MIMIC_CORE = new ItemBase("mimic_core"),
-        WAND = new ItemWand("wand"),
         RECALL_POTION = new ItemRecallPotion("recall_potion"),
         WINGS = new ItemWings("wings"),
         UMBRELLA = new ItemUmbrella("umbrella");
