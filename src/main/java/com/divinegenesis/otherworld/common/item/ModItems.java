@@ -24,6 +24,8 @@ public class ModItems
         LIFE_FRUIT = new ItemLifeFruit("life_fruit"),
         MIMIC_CORE = new ItemBase("mimic_core"),
         WAND = new ItemWand("wand"),
-        RECALL_POTION = new ItemRecallPotion("recall_potion");
+        RECALL_POTION = new ItemRecallPotion("recall_potion"),
+        WINGS = new ItemWings("wings"),
+        UMBRELLA = new ItemUmbrella("umbrella");
 
 }

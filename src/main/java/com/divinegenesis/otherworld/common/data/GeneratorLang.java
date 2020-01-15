@@ -61,6 +61,7 @@ public class GeneratorLang extends LanguageProvider
 
         //tooltips
         add(tooltip(HEART), "This shiny item resembles a heart and probably not edible, wonder what it tastes like");
+        add(tooltip(UMBRELLA), "\"I\'m Mary Poppins y'all!\"");
     }
 
     private String tooltip(Item item) { return "tooltip." + item.getRegistryName(); }

@@ -3,11 +3,13 @@ package com.divinegenesis.otherworld.common.events;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber()
 public class NoSwimEvents
 {
+    @SubscribeEvent
     public static void swim(LivingEvent.LivingUpdateEvent event)
     {
         if(event.getEntityLiving() instanceof PlayerEntity)

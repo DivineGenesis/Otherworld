@@ -25,5 +25,6 @@
   "item.otherworld.recall_potion": "Recall Potion",
   "item.otherworld.scroll_of_accessory": "Scroll of Accessories",
   "itemGroup.otherworld": "Otherworld",
-  "tooltip.otherworld:life_crystal": "This shiny item resembles a heart and probably not edible, wonder what it tastes like"
+  "tooltip.otherworld:life_crystal": "This shiny item resembles a heart and probably not edible, wonder what it tastes like",
+  "tooltip.otherworld:umbrella": "\"I'm Mary Poppins y'all!\""
 }
