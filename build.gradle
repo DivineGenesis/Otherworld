@@ -13,8 +13,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = "${mod_version}"
-group =  "${mod_group}"
-archivesBaseName = "${mod_name}"
+group =  "com.divinegenesis.otherworld"
+archivesBaseName = "Otherworld"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -94,12 +94,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "${mod_name}",
-            "Specification-Vendor": "${mod_author}",
+            "Specification-Title": "Otherworld",
+            "Specification-Vendor": "Team DivineGenesis",
             "Specification-Version": "${version}",
-            "Implementation-Title": "${mod_name}",
+            "Implementation-Title": "Otherworld",
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"${mod_author}",
+            "Implementation-Vendor" :"Team DivineGenesis",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -108,7 +108,7 @@ jar {
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'META-INF/mods.toml'
-        expand 'version': project.version, 'mod_id' : mod_id, 'mod_name': mod_name, 'mod_url': mod_url, 'mod_author': mod_author, 'mod_description': mod_description
+        expand 'version': project.version
     }
 
     from(sourceSets.main.resources.srcDirs) {
