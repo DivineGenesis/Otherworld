@@ -17,6 +17,7 @@ public class BlockCrystalHeart extends BlockBase implements IWaterLoggable
     public BlockCrystalHeart(String name, Material material)
     {
         super(name, material);
+        this.setDefaultState(getDefaultState().with(WATERLOGGED, false));
     }
 
     @Override

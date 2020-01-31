@@ -16,9 +16,7 @@ public class CuriosItemCapability {
         return new Provider(curio);
     }
 
-    private static class CurioWrapper implements ICurio {
-
-    }
+    private static class CurioWrapper implements ICurio {}
 
     public static class Provider implements ICapabilityProvider {
 

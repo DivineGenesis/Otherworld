@@ -23,5 +23,6 @@ public class ModBlocks
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
         ARCANE_PEDESTAL = new BlockPedestal("arcane_pedestal", Material.ROCK),
         HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD),
-        CRYSTAL_HEART = new BlockCrystalHeart("crystal_heart", Material.ROCK);
+        CRYSTAL_HEART = new BlockCrystalHeart("crystal_heart", Material.ROCK),
+        RACK = new BlockRack();
 }

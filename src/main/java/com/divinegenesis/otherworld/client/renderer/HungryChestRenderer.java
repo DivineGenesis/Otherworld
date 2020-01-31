@@ -1,6 +1,5 @@
 package com.divinegenesis.otherworld.client.renderer;
 
-
 import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -12,29 +11,25 @@ import net.minecraft.tileentity.IChestLid;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-/*
 public class HungryChestRenderer<t extends TileEntity & IChestLid> extends TileEntityRenderer
 {
-    public HungryChestRenderer(TileEntityRendererDispatcher p_i226006_1_) {
-        super(p_i226006_1_);
+    public HungryChestRenderer(TileEntityRendererDispatcher dispatcher) {
+        super(dispatcher);
     }
 
     @Override
-    public void func_225616_a_(TileEntity p_225616_1_, float p_225616_2_, MatrixStack p_225616_3_, IRenderTypeBuffer p_225616_4_, int p_225616_5_, int p_225616_6_) {
-
-    }
-    @Override
-    public void render(TileEntity tileEntityIn, double x, double y, double z, float partialTicks, int destroyStage) {
+    public void render(TileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn)
+    {
         GlStateManager.enableDepthTest();
         GlStateManager.depthFunc(515);
         GlStateManager.depthMask(true);
 
         HungryChestTE tileEntity = (HungryChestTE) tileEntityIn;
-
         BlockState blockstate = tileEntity.getBlockState();
 
-        if (destroyStage >= 0)
+        /*if (destroyStage >= 0)
         {
+
             this.bindTexture(DESTROY_STAGES[destroyStage]);
             GlStateManager.matrixMode(5890);
             GlStateManager.pushMatrix();
@@ -42,13 +37,14 @@ public class HungryChestRenderer<t extends TileEntity & IChestLid> extends TileE
             GlStateManager.translatef(0.0625F, 0.0625F, 0.0625F);
             GlStateManager.matrixMode(5888);
         }
-        else
+        else*/
         {
-            this.bindTexture(new ResourceLocation("otherworld", "textures/model/hungrychest"));
+            //this.bindTexture();
+            this.renderDispatcher.textureManager.bindTexture(new ResourceLocation("otherworld", "textures/model/hungrychest"));
             GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         }
 
-        GlStateManager.pushMatrix();
+        /*GlStateManager.pushMatrix();
 
         GlStateManager.enableRescaleNormal();
         GlStateManager.translatef((float) x, (float) y + 1.0F, (float) z + 1.0F);
@@ -71,6 +67,6 @@ public class HungryChestRenderer<t extends TileEntity & IChestLid> extends TileE
             GlStateManager.matrixMode(5890);
             GlStateManager.popMatrix();
             GlStateManager.matrixMode(5888);
-        }
+        }*/
     }
-}*/
+}

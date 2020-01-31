@@ -22,10 +22,4 @@ public class BlockBase extends Block
 
         ModBlocks.BLOCKS.add(this);
     }
-
-    /*public BlockBase()
-    {
-        super(Block.Properties.create(Material.BAMBOO));
-    }*/
-
 }

@@ -1,11 +1,16 @@
 package com.divinegenesis.otherworld.common.blocks.types;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
+
+import javax.annotation.Nullable;
 
 public class BlockUrn extends BlockBase
 {
@@ -37,5 +42,10 @@ public class BlockUrn extends BlockBase
     @Override
     public boolean isNormalCube(BlockState p_220081_1_, IBlockReader p_220081_2_, BlockPos p_220081_3_) {
         return false;
+    }
+
+    @Override
+    public SoundType getSoundType(BlockState state, IWorldReader world, BlockPos pos, @Nullable Entity entity) {
+        return SoundType.GLASS;
     }
 }

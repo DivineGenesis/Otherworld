@@ -11,9 +11,11 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.*;
 
+@Mod.EventBusSubscriber()
 public class SoulbindingEvents
 {
     private static Map<UUID, List<ItemStack>> returnList = new HashMap<UUID, List<ItemStack>>();

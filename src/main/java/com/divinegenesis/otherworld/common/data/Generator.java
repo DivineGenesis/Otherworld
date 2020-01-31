@@ -18,9 +18,8 @@ public class Generator
 
         if(event.includeServer())
         {
-            //gen.addProvider(new GeneratorLoot(gen));
+            gen.addProvider(new GeneratorLoot(gen));
             gen.addProvider(new GeneratorRecipes(gen));
-
         }
 
         if(event.includeClient())

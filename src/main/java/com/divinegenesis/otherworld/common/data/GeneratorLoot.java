@@ -17,6 +17,7 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.functions.SetCount;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,11 +42,6 @@ public class GeneratorLoot extends LootTableProvider
         );
     }
 
-//    @Override
-//    protected void validate(Map<ResourceLocation, LootTable> map, ValidationResults validationresults) {
-//        map.forEach((name, table) -> LootTableManager.func_215302_a(validationresults, name, table, map::get));
-//    }
-
     private static class Blocks extends BlockLootTables {
 
         @Override
@@ -54,11 +50,10 @@ public class GeneratorLoot extends LootTableProvider
             //Generates to drop self by default
             ModBlocks.BLOCKS.forEach(block -> this.registerDropSelfLootTable(block));
 
-            //TODO: pretty sure this is overly complicated... maybe redesign & learn how to do this :D
-            //overriders
             //this.registerLootTable(ModBlocks.CRYSTAL_HEART, (p_218496_0_) -> func_218519_a(p_218496_0_, ItemLootEntry.builder(ModItems.HEART).acceptFunction(SetCount.builder(RandomValueRange.of(1, 1)))));
             this.registerDropping(ModBlocks.CRYSTAL_HEART, ModItems.HEART);
             this.registerLootTable(ModBlocks.HUNGRY_CHEST, BlockLootTables::droppingWithName);
+            this.registerLootTable(ModBlocks.URN, LootTable.builder().addLootPool(LootPool.builder().rolls(ConstantRange.of(3)).addEntry(ItemLootEntry.builder(Items.EXPERIENCE_BOTTLE))));
 
         }
 

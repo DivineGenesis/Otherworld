@@ -7,6 +7,7 @@ import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
 import com.divinegenesis.otherworld.common.enchants.ModEnchants;
 import com.divinegenesis.otherworld.common.item.ModItems;
+import com.divinegenesis.otherworld.common.world.gen.features.HeartCrystalFeature;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.fluid.Fluid;
@@ -16,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -45,22 +47,9 @@ public class RegistryEvents
     }
 
     @SubscribeEvent
-    public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> event)
-    {
-        //Otherworld.LOGGER.info("Registering fluids...");
-
-
-    }
-
-    @SubscribeEvent
     public static void OnEnchantRegistry(final RegistryEvent.Register<Enchantment> event)
     {
         ModEnchants.ENCHANTS.forEach(enchantment -> event.getRegistry().register(enchantment));
-    }
-
-    @SubscribeEvent
-    public static void OnDimensionRegistry(final RegistryEvent.Register<ModDimension> event)
-    {
     }
 
     @SubscribeEvent
@@ -85,7 +74,7 @@ public class RegistryEvents
     }
 
     @SubscribeEvent
-    public static void OnCurioRegistry(final RegistryEvent.Register<ContainerType<?>> event)
+    public static void OnFeatureRegistry(final RegistryEvent.Register<Feature<?>> event)
     {
         event.getRegistry().registerAll();
     }

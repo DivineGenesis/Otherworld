@@ -3,15 +3,12 @@
   "group": "otherworld",
   "pattern": [
     "###",
-    "#A#",
+    "# #",
     "###"
   ],
   "key": {
     "#": {
       "item": "otherworld:greatwood_plank"
-    },
-    "A": {
-      "item": "otherworld:mimic_core"
     }
   },
   "result": {
