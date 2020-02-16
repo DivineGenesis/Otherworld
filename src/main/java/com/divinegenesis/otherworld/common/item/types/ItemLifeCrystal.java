@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.item.types;
 
+import com.divinegenesis.otherworld.common.ModSounds;
 import com.divinegenesis.otherworld.common.helpers.HealthHelper;
 import com.divinegenesis.otherworld.common.item.types.ItemBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -8,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -32,6 +34,7 @@ public class ItemLifeCrystal extends ItemBase {
             if(!HealthHelper.isMaxHealth(playerIn, HealthHelper.HealthType.LIFE_CRYSTAL))
             {
                 HealthHelper.giveHealth(playerIn, HealthHelper.HealthType.LIFE_CRYSTAL);
+                worldIn.playSound(playerIn, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), ModSounds.CRYSTAL_HEART, SoundCategory.PLAYERS, 1f, 1f);
                 playerIn.getHeldItem(handIn).setCount(playerIn.getHeldItem(handIn).getCount()-1);
             }
         }

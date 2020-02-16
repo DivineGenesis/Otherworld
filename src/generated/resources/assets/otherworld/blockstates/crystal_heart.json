@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "otherworld:block/crystal_heart"
+    },
+    "waterlogged=true": {
+      "model": "otherworld:block/crystal_heart"
+    }
+  }
+}

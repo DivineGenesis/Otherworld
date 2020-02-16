@@ -9,6 +9,8 @@ import net.minecraft.fluid.IFluidState;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 
 public class BlockCrystalHeart extends BlockBase implements IWaterLoggable
 {
@@ -29,5 +31,10 @@ public class BlockCrystalHeart extends BlockBase implements IWaterLoggable
     @Override
     public IFluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+        return 7;
     }
 }

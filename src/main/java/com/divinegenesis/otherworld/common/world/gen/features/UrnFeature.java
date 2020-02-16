@@ -11,8 +11,8 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class UrnFeature extends Feature<NoFeatureConfig> {
-
+public class UrnFeature extends Feature<NoFeatureConfig>
+{
     public UrnFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn) {
         super(configFactoryIn);
     }

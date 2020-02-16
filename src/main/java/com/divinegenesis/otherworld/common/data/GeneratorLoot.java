@@ -57,7 +57,6 @@ public class GeneratorLoot extends LootTableProvider
             //Generates to drop self by default
             ModBlocks.BLOCKS.forEach(block -> this.registerDropSelfLootTable(block));
 
-            //this.registerLootTable(ModBlocks.CRYSTAL_HEART, (p_218496_0_) -> func_218519_a(p_218496_0_, ItemLootEntry.builder(ModItems.HEART).acceptFunction(SetCount.builder(RandomValueRange.of(1, 1)))));
             this.registerDropping(ModBlocks.CRYSTAL_HEART, ModItems.HEART);
             this.registerLootTable(ModBlocks.HUNGRY_CHEST, BlockLootTables::droppingWithName);
             this.registerLootTable(ModBlocks.URN, LootTable.builder().addLootPool(LootPool.builder().rolls(ConstantRange.of(3)).addEntry(ItemLootEntry.builder(Items.EXPERIENCE_BOTTLE))));

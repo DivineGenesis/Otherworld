@@ -9,6 +9,9 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 
 import javax.annotation.Nullable;
 
@@ -29,7 +32,12 @@ public class BlockUrn extends BlockBase
         return makeCuboidShape(3, 0, 3, 13, 12, 13);
     }
 
-//    @Override
+    @Override
+    public boolean isToolEffective(BlockState state, ToolType tool) {
+        return true;
+    }
+
+    //    @Override
 //    public BlockRenderLayer getRenderLayer() {
 //        return BlockRenderLayer.TRANSLUCENT;
 //    }

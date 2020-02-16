@@ -1,4 +1,4 @@
-<h1 align=center>Otherworld 1.15.1</h1>
+<h1 align=center>Otherworld 1.15.2</h1>
  <p align=center>
  <img alt="Discord" src="https://img.shields.io/discord/360327589287559178?color=green&label=Discord%20&style=for-the-badge">
  <img alt="GitHub issues" src="https://img.shields.io/github/issues/DivineGenesis/Otherworld?color=red&style=for-the-badge">

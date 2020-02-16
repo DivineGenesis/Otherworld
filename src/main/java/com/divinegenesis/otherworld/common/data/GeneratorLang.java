@@ -53,12 +53,12 @@ public class GeneratorLang extends LanguageProvider
         //advancements
         add("advancementTab.otherworld", "Otherworld");
         add("advancementTab.otherworld.desc", "Thanks for playing our mod :)");
-        add("advancement.otherworld:kronorium", "Kronorium Acquired");
-        add("advancement.otherworld:kronorium.desc", "Great, like I wanted to know THAT exists...");
 
         //tooltips
         add(tooltip(HEART), "This shiny item resembles a heart and probably not edible, wonder what it tastes like");
-        add(tooltip(UMBRELLA), "\"I\'m Mary Poppins y'all!\"");
+        add(tooltip(MAGIC_MIRROR), "Mirror mirror in my hand, take me from this far-away land");
+        add(tooltip(RECALL_POTION), "Returns user to bed or overworld spawn");
+        add(tooltip(UMBRELLA), "\"Im Mary Poppins yall!\"");
     }
 
     private String tooltip(Item item) { return "tooltip." + item.getRegistryName(); }

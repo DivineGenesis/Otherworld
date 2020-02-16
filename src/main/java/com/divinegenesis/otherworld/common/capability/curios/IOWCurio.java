@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.capability;
+package com.divinegenesis.otherworld.common.capability.curios;
 
 import net.minecraft.entity.LivingEntity;
 import top.theillusivec4.curios.api.capability.ICurio;

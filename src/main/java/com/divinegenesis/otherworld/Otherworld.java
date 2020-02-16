@@ -1,6 +1,7 @@
 package com.divinegenesis.otherworld;
 
 import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import com.divinegenesis.otherworld.common.fluid.ModFluids;
 import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
 import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
@@ -8,8 +9,8 @@ import com.divinegenesis.otherworld.common.world.gen.WorldGenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -18,8 +19,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import top.theillusivec4.curios.api.CuriosAPI;
-import top.theillusivec4.curios.api.imc.CurioIMCMessage;
 
 @Mod(value = Otherworld.MODID)
 public class Otherworld
@@ -49,6 +48,7 @@ public class Otherworld
     private void onCommonSetup(final FMLCommonSetupEvent event)
     {
         WorldGenManager.setupGenerator();
+        CapabilityOWPlayer.register();
     }
 
     private void onClientSetup(final FMLClientSetupEvent event){}

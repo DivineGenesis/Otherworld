@@ -1,6 +1,5 @@
 package com.divinegenesis.otherworld.common.item.types;
 
-import com.divinegenesis.otherworld.common.item.types.ItemBase;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -31,12 +30,6 @@ public class ItemMagicMirror extends ItemBase
                 pos = worldIn.getSpawnPoint();
             playerIn.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());//setPosition(pos.getX(), pos.getY(), pos.getZ());
         }
-
-
-
-
-
-
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }

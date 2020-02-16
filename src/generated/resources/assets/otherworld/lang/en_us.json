@@ -1,6 +1,4 @@
 {
-  "advancement.otherworld:kronorium": "Kronorium Acquired",
-  "advancement.otherworld:kronorium.desc": "Great, like I wanted to know THAT exists...",
   "advancementTab.otherworld": "Otherworld",
   "advancementTab.otherworld.desc": "Thanks for playing our mod :)",
   "block.otherworld.greatwood_plank": "Greatwood Plank",
@@ -23,5 +21,6 @@
   "item.otherworld.recall_potion": "Recall Potion",
   "itemGroup.otherworld": "Otherworld",
   "tooltip.otherworld:life_crystal": "This shiny item resembles a heart and probably not edible, wonder what it tastes like",
-  "tooltip.otherworld:umbrella": "\"I'm Mary Poppins y'all!\""
+  "tooltip.otherworld:recall_potion": "Returns user to bed or overworld spawn",
+  "tooltip.otherworld:umbrella": "\"Im Mary Poppins yall!\""
 }

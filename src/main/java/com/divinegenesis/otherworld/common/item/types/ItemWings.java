@@ -1,7 +1,7 @@
 package com.divinegenesis.otherworld.common.item.types;
 
-import com.divinegenesis.otherworld.common.capability.CuriosItemCapability;
-import com.divinegenesis.otherworld.common.capability.IOWCurio;
+import com.divinegenesis.otherworld.common.capability.curios.CuriosItemCapability;
+import com.divinegenesis.otherworld.common.capability.curios.IOWCurio;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -9,9 +9,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import top.theillusivec4.curios.api.capability.ICurio;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class ItemWings extends ItemBase {

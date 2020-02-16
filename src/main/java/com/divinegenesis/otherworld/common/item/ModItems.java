@@ -21,6 +21,11 @@ public class ModItems
         LIFE_FRUIT = new ItemLifeFruit("life_fruit"),
         RECALL_POTION = new ItemRecallPotion("recall_potion"),
         WINGS = new ItemWings("wings"),
-        UMBRELLA = new ItemUmbrella("umbrella");
+        UMBRELLA = new ItemUmbrella("umbrella"),
+        SOUL_EXTRACTOR = new ItemSoulExtractor("soul_extractor"),
 
+        MANDRAKE_ROOT = new ItemBase("mandrake_root"),
+
+        TAGLOCK = new ItemBase("taglock"),
+        BONE_NEEDLE = new ItemBase("bone_needle");
 }

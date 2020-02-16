@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.world.gen.features;
 
+import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -26,6 +27,7 @@ public class HeartCrystalFeature extends Feature<NoFeatureConfig>
         {
             if(worldIn.getBlockState(pos.down()).getBlock().isSolid(worldIn.getBlockState(pos.down())))
             {
+                worldIn.setBlockState(pos, ModBlocks.CRYSTAL_HEART.getDefaultState(), 2);
                 return true;
             }
         }

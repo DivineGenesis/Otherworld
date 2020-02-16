@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.events;
 
+import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import com.divinegenesis.otherworld.common.helpers.HealthHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -12,7 +13,9 @@ public class HealthEvents
     {
         PlayerEntity player = event.getPlayer();
         PlayerEntity old = event.getOriginal();
-
         HealthHelper.giveBackMyAttributes(old, player);
+
+
+        //player.getCapability(CapabilityOWPlayer.DATA).
     }
 }

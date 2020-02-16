@@ -1,3 +1,9 @@
 {
-
+	"crystal_heart": {
+	"sounds": [
+		{
+			"name": "otherworld:crystal_heart",
+			"stream": true
+		}
+	]}
 }

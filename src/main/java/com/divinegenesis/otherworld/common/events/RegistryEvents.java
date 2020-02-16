@@ -7,18 +7,14 @@ import com.divinegenesis.otherworld.common.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
 import com.divinegenesis.otherworld.common.enchants.ModEnchants;
 import com.divinegenesis.otherworld.common.item.ModItems;
-import com.divinegenesis.otherworld.common.world.gen.features.HeartCrystalFeature;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,8 +22,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryEvents
 {
-    //public static final PurgatoryDimensionType PURGATORY = new PurgatoryDimensionType(new ResourceLocation(Otherworld.MODID, "purgatory_dimension"));
-
     @SubscribeEvent
     public static void onBlocksRegistry(final RegistryEvent.Register<Block> event)
     {
@@ -53,13 +47,6 @@ public class RegistryEvents
     }
 
     @SubscribeEvent
-    public static void OnSoundRegistry(final RegistryEvent.Register<SoundEvent> event)
-    {
-        Otherworld.LOGGER.info("Some Smoooooth Jazz activated");
-        ModSounds.SOUNDS.forEach(soundEvent -> event.getRegistry().register(soundEvent));
-    }
-
-    @SubscribeEvent
     public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event)
     {
         event.getRegistry().registerAll(
@@ -69,12 +56,6 @@ public class RegistryEvents
 
     @SubscribeEvent
     public static void OnContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event)
-    {
-        event.getRegistry().registerAll();
-    }
-
-    @SubscribeEvent
-    public static void OnFeatureRegistry(final RegistryEvent.Register<Feature<?>> event)
     {
         event.getRegistry().registerAll();
     }

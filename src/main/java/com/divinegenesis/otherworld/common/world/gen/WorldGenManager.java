@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.PlainsBiome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
@@ -17,15 +18,14 @@ public class WorldGenManager
     {
         ForgeRegistries.BIOMES.forEach(biome ->
         {
-           // biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, crystalHeartFeature());
+            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, crystalHeartFeature());
             biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, urnFeature());
         });
     }
 
-
     private static ConfiguredFeature<?, ?> crystalHeartFeature()
     {
-        return OWFeature.CRYSTAL_HEART.
+        return OWFeatures.CRYSTAL_HEART.
                 withConfiguration(new NoFeatureConfig())
                 .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(5, 5, 8, 21)));
     }

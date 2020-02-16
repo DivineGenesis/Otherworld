@@ -21,6 +21,7 @@ public class GeneratorBlockstates extends BlockStateProvider
     protected void registerStatesAndModels()
     {
         buildCubeAll(ModBlocks.GREATWOOD_PLANK);
+        buildCubeAll(ModBlocks.CRYSTAL_HEART);
     }
 
     private void buildCubeAll(Block block) {

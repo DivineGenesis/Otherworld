@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.capability;
+package com.divinegenesis.otherworld.common.capability.curios;
 
 import net.minecraft.util.Direction;
 import net.minecraftforge.common.capabilities.Capability;

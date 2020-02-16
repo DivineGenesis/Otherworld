@@ -1,8 +1,9 @@
 package com.divinegenesis.otherworld.common.item.types;
 
+import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
+import com.divinegenesis.otherworld.common.capability.OWPlayerStorage;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
@@ -11,13 +12,12 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.energy.EnergyStorage;
 
 import java.util.Optional;
 
-public class ItemRecallPotion extends ItemBase
-{
-    public ItemRecallPotion(String name)
-    {
+public class ItemSoulExtractor extends ItemBase {
+    public ItemSoulExtractor(String name) {
         super(name);
     }
 
@@ -26,13 +26,8 @@ public class ItemRecallPotion extends ItemBase
         if(!worldIn.isRemote() && entityLiving instanceof PlayerEntity)
         {
             PlayerEntity playerIn = (PlayerEntity) entityLiving;
-            BlockPos pos = playerIn.getBedLocation(worldIn.getDimension().getType());
-            Optional<Vec3d> vec = PlayerEntity.func_213822_a(worldIn, pos, false);
-            if(vec.isPresent())
-                pos = new BlockPos(vec.get().x, vec.get().y, vec.get().z);
-            else
-                pos = worldIn.getSpawnPoint();
-            playerIn.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());//setPosition(pos.getX(), pos.getY(), pos.getZ());
+            playerIn.getCapability(CapabilityOWPlayer.DATA)
+                    .ifPresent(iowPlayerStorage -> iowPlayerStorage.setSoul(!iowPlayerStorage.hasSoul()));
         }
         return ItemStack.EMPTY;
     }
@@ -52,10 +47,5 @@ public class ItemRecallPotion extends ItemBase
     @Override
     public int getUseDuration(ItemStack stack) {
         return  32;
-    }
-
-    @Override
-    public boolean hasEffect(ItemStack p_77636_1_) {
-        return true;
     }
 }
