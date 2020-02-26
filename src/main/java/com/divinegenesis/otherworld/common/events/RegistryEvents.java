@@ -1,12 +1,11 @@
 package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.ModSounds;
 import com.divinegenesis.otherworld.common.ModTileEntities;
-import com.divinegenesis.otherworld.common.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
-import com.divinegenesis.otherworld.common.enchants.ModEnchants;
-import com.divinegenesis.otherworld.common.item.ModItems;
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.HungryChestTE;
+import com.divinegenesis.otherworld.common.objects.enchants.ModEnchants;
+import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.container.ContainerType;
@@ -14,7 +13,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

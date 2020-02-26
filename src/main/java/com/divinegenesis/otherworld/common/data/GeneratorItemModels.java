@@ -1,8 +1,8 @@
 package com.divinegenesis.otherworld.common.data;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.item.ModItems;
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;

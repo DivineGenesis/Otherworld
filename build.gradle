@@ -25,8 +25,8 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            //property 'forge.logging.console.level', 'debug'
 
             mods {
                 otherworld {
@@ -84,7 +84,7 @@ dependencies {
 
     //JEI
       compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
-//    runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
+      runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
 
     //CURIOS
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-${curios_version}")

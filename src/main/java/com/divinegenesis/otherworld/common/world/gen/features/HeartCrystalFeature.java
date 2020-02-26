@@ -1,6 +1,6 @@
 package com.divinegenesis.otherworld.common.world.gen.features;
 
-import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -9,7 +9,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 import java.util.Random;
 import java.util.function.Function;

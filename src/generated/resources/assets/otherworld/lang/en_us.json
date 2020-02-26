@@ -1,6 +1,7 @@
 {
   "advancementTab.otherworld": "Otherworld",
   "advancementTab.otherworld.desc": "Thanks for playing our mod :)",
+  "block.otherworld.crystal_heart": "Crystal Heart",
   "block.otherworld.greatwood_plank": "Greatwood Plank",
   "block.otherworld.hungry_chest": "Hungry Chest",
   "block.otherworld.ichorium_ore": "Ichorium Ore",
@@ -13,14 +14,19 @@
   "enchantment.otherworld.repair": "Repair",
   "enchantment.otherworld.soulbound": "Soulbound",
   "fluid.otherworld.ichor_fluid": "Ichorium Essence",
+  "item.otherworld.bone_needle": "Bone Needle",
   "item.otherworld.ender_pouch": "Enderpouch",
   "item.otherworld.ichor_bucket": "Ichorium Bucket",
   "item.otherworld.life_crystal": "Life Crystal",
   "item.otherworld.life_fruit": "Life Fruit",
   "item.otherworld.magic_mirror": "Magical Mirror",
+  "item.otherworld.mandrake_root": "Mandrake Root",
   "item.otherworld.recall_potion": "Recall Potion",
+  "item.otherworld.taglock": "Taglock",
   "itemGroup.otherworld": "Otherworld",
   "tooltip.otherworld:life_crystal": "This shiny item resembles a heart and probably not edible, wonder what it tastes like",
+  "tooltip.otherworld:magic_mirror": "Mirror mirror in my hand, take me from this far-away land",
   "tooltip.otherworld:recall_potion": "Returns user to bed or overworld spawn",
+  "tooltip.otherworld:taglock": "Bound to: ",
   "tooltip.otherworld:umbrella": "\"Im Mary Poppins yall!\""
 }

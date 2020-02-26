@@ -1,6 +1,6 @@
 package com.divinegenesis.otherworld.client.renderer;
 
-import com.divinegenesis.otherworld.common.blocks.tileentities.HungryChestTE;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.HungryChestTE;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.block.BlockState;

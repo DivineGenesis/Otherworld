@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[31,)"
 issueTrackerURL="https://github.com/DivineGenesis/Otherworld/issues"
 
 [[mods]]
@@ -14,6 +14,6 @@ description='''A supernatural-type minecraft mod heavily influenced by Thaumcraf
 [[dependencies.otherworld]]
     modId="forge"
     mandatory=true
-    versionRange="[28,)"
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"

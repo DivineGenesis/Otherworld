@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "otherworld:bone_needle"
+    ]
+  },
+  "criteria": {
+    "bone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:bone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "otherworld:bone_needle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bone",
+      "has_the_recipe"
+    ]
+  ]
+}

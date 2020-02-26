@@ -8,18 +8,21 @@ import net.minecraft.util.registry.Registry;
 
 import java.nio.file.Path;
 
-public class GeneratorTags extends TagsProvider {
+public class GeneratorTags extends TagsProvider
+{
     protected GeneratorTags(DataGenerator generator, Registry registry) {
         super(generator, registry);
     }
 
     @Override
-    protected void registerTags() {
+    protected void registerTags()
+    {
 
     }
 
     @Override
-    protected void setCollection(TagCollection colectionIn) {
+    protected void setCollection(TagCollection colectionIn)
+    {
 
     }
 
@@ -31,6 +34,6 @@ public class GeneratorTags extends TagsProvider {
 
     @Override
     public String getName() {
-        return null;
+        return "Tags";
     }
 }

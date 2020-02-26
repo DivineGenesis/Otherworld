@@ -12,4 +12,6 @@ public class GeneratorAdvancements extends AdvancementProvider
     {
         super(generatorIn);
     }
+
+
 }

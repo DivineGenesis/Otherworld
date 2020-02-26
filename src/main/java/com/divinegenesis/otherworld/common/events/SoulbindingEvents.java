@@ -1,8 +1,8 @@
 package com.divinegenesis.otherworld.common.events;
 
-import com.divinegenesis.otherworld.common.enchants.ModEnchants;
+import com.divinegenesis.otherworld.common.objects.enchants.ModEnchants;
 import com.divinegenesis.otherworld.common.helpers.HealthHelper;
-import com.divinegenesis.otherworld.common.item.ModItems;
+import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,11 +1,8 @@
 package com.divinegenesis.otherworld.common.world.gen;
 
-import com.divinegenesis.otherworld.common.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.google.common.collect.Lists;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.PlainsBiome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
