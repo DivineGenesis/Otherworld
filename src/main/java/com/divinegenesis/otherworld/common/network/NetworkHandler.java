@@ -1,7 +1,7 @@
-package com.divinegenesis.otherworld.network;
+package com.divinegenesis.otherworld.common.network;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.network.packets.DataSyncPacket;
+import com.divinegenesis.otherworld.common.network.packets.DataSyncPacket;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkEvent;

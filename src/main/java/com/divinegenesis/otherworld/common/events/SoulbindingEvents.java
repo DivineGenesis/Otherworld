@@ -60,8 +60,6 @@ public class SoulbindingEvents
         PlayerEntity old = event.getOriginal();
         UUID uuid = player.getUniqueID();
 
-        HealthHelper.giveBackMyAttributes(old, player);
-
         if(event.isWasDeath() && returnList.containsKey(uuid))
         {
             List<ItemStack> items = returnList.get(uuid);

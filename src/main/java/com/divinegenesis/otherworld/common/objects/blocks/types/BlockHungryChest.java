@@ -1,6 +1,6 @@
 package com.divinegenesis.otherworld.common.objects.blocks.types;
 
-import com.divinegenesis.otherworld.common.objects.blocks.tileentities.HungryChestTE;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.HungryChestTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

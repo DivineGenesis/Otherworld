@@ -13,9 +13,7 @@ public class HealthEvents
     {
         PlayerEntity player = event.getPlayer();
         PlayerEntity old = event.getOriginal();
+
         HealthHelper.giveBackMyAttributes(old, player);
-
-
-        //player.getCapability(CapabilityOWPlayer.DATA).
     }
 }

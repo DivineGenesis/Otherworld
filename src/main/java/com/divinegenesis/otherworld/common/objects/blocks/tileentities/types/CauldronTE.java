@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.objects.blocks.tileentities;
+package com.divinegenesis.otherworld.common.objects.blocks.tileentities.types;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;

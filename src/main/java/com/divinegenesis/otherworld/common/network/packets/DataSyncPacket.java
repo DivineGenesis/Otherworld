@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.network.packets;
+package com.divinegenesis.otherworld.common.network.packets;
 
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import net.minecraft.entity.player.PlayerEntity;

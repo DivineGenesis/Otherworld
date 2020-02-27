@@ -1,9 +1,9 @@
 package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
-import com.divinegenesis.otherworld.common.ModTileEntities;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.objects.blocks.tileentities.HungryChestTE;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.HungryChestTE;
 import com.divinegenesis.otherworld.common.objects.enchants.ModEnchants;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;

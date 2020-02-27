@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.containers;
+package com.divinegenesis.otherworld.common.containers.types;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;

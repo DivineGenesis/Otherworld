@@ -6,7 +6,7 @@ import com.divinegenesis.otherworld.common.objects.fluids.ModFluids;
 import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
 import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
 import com.divinegenesis.otherworld.common.world.gen.WorldGenManager;
-import com.divinegenesis.otherworld.network.NetworkHandler;
+import com.divinegenesis.otherworld.common.network.NetworkHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

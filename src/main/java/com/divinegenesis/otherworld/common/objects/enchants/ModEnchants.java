@@ -17,5 +17,7 @@ public class ModEnchants
             BEHEADING = new BaseEnchantment(5).setRegistryName("beheading"),
             REPAIR = new BaseEnchantment(3).setRegistryName("repair"),
             AUTO_SMELT = new BaseEnchantment().setRegistryName("auto_smelt"),
-            AUTO_PICKUP = new BaseEnchantment().setRegistryName("auto_pickup");
+            AUTO_PICKUP = new BaseEnchantment().setRegistryName("auto_pickup"),
+
+            REAPING = new BaseEnchantment().setRegistryName("reaping");
 }

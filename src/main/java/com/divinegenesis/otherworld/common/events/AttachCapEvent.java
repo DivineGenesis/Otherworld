@@ -2,8 +2,8 @@ package com.divinegenesis.otherworld.common.events;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
-import com.divinegenesis.otherworld.network.NetworkHandler;
-import com.divinegenesis.otherworld.network.packets.DataSyncPacket;
+import com.divinegenesis.otherworld.common.network.NetworkHandler;
+import com.divinegenesis.otherworld.common.network.packets.DataSyncPacket;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;

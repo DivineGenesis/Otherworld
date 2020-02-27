@@ -1,6 +1,6 @@
-package com.divinegenesis.otherworld.common.objects.blocks.tileentities;
+package com.divinegenesis.otherworld.common.objects.blocks.tileentities.types;
 
-import com.divinegenesis.otherworld.common.ModTileEntities;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
