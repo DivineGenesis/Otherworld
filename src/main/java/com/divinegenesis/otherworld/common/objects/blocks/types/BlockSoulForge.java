@@ -1,21 +1,17 @@
 package com.divinegenesis.otherworld.common.objects.blocks.types;
 
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.HungryChestTE;
-import net.minecraft.block.*;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.SoulForgeTE;
+import net.minecraft.block.AbstractFurnaceBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.BlastFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -25,39 +21,32 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class BlockHungryChest extends ContainerBlock implements IWaterLoggable
+public class BlockSoulForge extends AbstractFurnaceBlock
 {
-    private static final  EnumProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-    public BlockHungryChest(String name, Material material)
+    public BlockSoulForge(String name, Material material)
     {
         super(Block.Properties.create(material));
         this.setRegistryName(name);
 
         ModBlocks.BLOCKS.add(this);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
-    }
-
-    @Override
-    public IFluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-    }
-
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
+    protected void interactWith(World worldIn, BlockPos pos, PlayerEntity player) {
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        if (tileentity instanceof BlastFurnaceTileEntity)
+            player.openContainer((INamedContainerProvider)tileentity);
     }
 
     @Nullable
     @Override
     public TileEntity createNewTileEntity(IBlockReader worldIn) {
-        return new HungryChestTE();
+        return new SoulForgeTE();
+    }
+
+    @Override
+    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+        return state.get(LIT) ? 9:0;
     }
 
     @Override

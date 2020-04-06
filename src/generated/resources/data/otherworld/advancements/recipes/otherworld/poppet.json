@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "otherworld:poppet"
+    ]
+  },
+  "criteria": {
+    "taglock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "otherworld:taglock"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "otherworld:poppet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "taglock",
+      "has_the_recipe"
+    ]
+  ]
+}

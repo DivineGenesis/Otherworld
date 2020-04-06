@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.objects.fluids;
+package com.divinegenesis.otherworld.common.objects.fluids.types;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.IFluidState;

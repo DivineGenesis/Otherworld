@@ -1,5 +1,7 @@
 package com.divinegenesis.otherworld;
 
+import com.divinegenesis.otherworld.client.screens.SoulForgeScreen;
+import com.divinegenesis.otherworld.common.containers.ModContainers;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import com.divinegenesis.otherworld.common.objects.fluids.ModFluids;
@@ -7,6 +9,7 @@ import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
 import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
 import com.divinegenesis.otherworld.common.world.gen.WorldGenManager;
 import com.divinegenesis.otherworld.common.network.NetworkHandler;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,6 +46,7 @@ public class Otherworld
         MinecraftForge.EVENT_BUS.register(this);
         ModFluids fluids = new ModFluids();
         ModDimUtil.DIMENSIONS.register(event);
+        ModContainers.CONTAINERS.register(event);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event)
@@ -52,7 +56,10 @@ public class Otherworld
         CapabilityOWPlayer.register();
     }
 
-    private void onClientSetup(final FMLClientSetupEvent event){}
+    private void onClientSetup(final FMLClientSetupEvent event)
+    {
+        ScreenManager.registerFactory(ModContainers.SOULFORGE_CONTAINER.get(), SoulForgeScreen::new);
+    }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {

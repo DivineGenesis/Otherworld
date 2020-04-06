@@ -23,5 +23,7 @@ public class ModBlocks
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
         HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD),
         CRYSTAL_HEART = new BlockCrystalHeart("crystal_heart", Material.ROCK),
-        RACK = new BlockRack();
+        RACK = new BlockRack(),
+        SOUL_FORGE = new BlockSoulForge("soul_forge", Material.ROCK),
+        MANDRAKE_CROP = new BlockMandrakePlant(Block.Properties.create(Material.PLANTS));
 }

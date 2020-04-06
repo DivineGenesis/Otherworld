@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "otherworld:taglock"
+    },
+    {
+      "item": "otherworld:mandrake_root"
+    }
+  ],
+  "result": {
+    "item": "otherworld:poppet"
+  }
+}

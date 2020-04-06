@@ -4,10 +4,15 @@ import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.HungryChestTE;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.SoulForgeTE;
 import com.divinegenesis.otherworld.common.objects.enchants.ModEnchants;
+import com.divinegenesis.otherworld.common.objects.entities.ModEntities;
+import com.divinegenesis.otherworld.common.objects.entities.types.MandrakeEntity;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -45,16 +50,21 @@ public class RegistryEvents
     }
 
     @SubscribeEvent
-    public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event)
-    {
+    public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
         event.getRegistry().registerAll(
-                ModTileEntities.HUNGRY_CHEST = TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te"))
+                ModTileEntities.HUNGRY_CHEST = TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te")),
+                ModTileEntities.SOUL_FORGE = TileEntityType.Builder.create(SoulForgeTE::new, ModBlocks.SOUL_FORGE).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "soulforge_te"))
         );
     }
 
     @SubscribeEvent
-    public static void OnContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event)
+    public static void OnEntityRegistry(final RegistryEvent.Register<EntityType<?>> event)
     {
-        event.getRegistry().registerAll();
+//        event.getRegistry().register(
+//                ModEntities.MANDRAKE = EntityType.Builder.create(MandrakeEntity::new, EntityClassification.MONSTER)
+//                        .size(1f, 1f)
+//                        .build("mandrake")
+//                        .setRegistryName(new ResourceLocation(Otherworld.MODID, "mandrake"))
+//                );
     }
 }

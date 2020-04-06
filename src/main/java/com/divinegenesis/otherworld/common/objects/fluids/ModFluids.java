@@ -1,6 +1,7 @@
 package com.divinegenesis.otherworld.common.objects.fluids;
 
 import com.divinegenesis.otherworld.Otherworld;
+import com.divinegenesis.otherworld.common.objects.fluids.types.IchorFluid;
 import net.minecraft.block.Block;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.material.Material;

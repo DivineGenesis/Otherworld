@@ -40,7 +40,7 @@ public class ItemWings extends ItemBase {
                     if (!player.onGround && isJumping)
                     {
                         Vec3d vec = player.getMotion();
-                        player.setMotion(new Vec3d(vec.x, vec.y + .1D, vec.z));
+                        player.setMotion(new Vec3d(vec.x, vec.y + .0999999995D, vec.z));
                     }
                 }
             }

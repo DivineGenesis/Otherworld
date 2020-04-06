@@ -106,7 +106,7 @@ public class PurgatoryDimension extends Dimension
          */
         public boolean isSurfaceWorld()
         {
-            return true;
+            return false;
         }
 
         /**

@@ -2,6 +2,7 @@ package com.divinegenesis.otherworld.common.data;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.entities.ModEntities;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -33,6 +34,7 @@ public class GeneratorLang extends LanguageProvider
         add("item.otherworld.ichor_bucket", "Ichorium Bucket");
         add(TAGLOCK, "Taglock");
         add(BONE_NEEDLE, "Bone Needle");
+        add(SOUL_OF_FLIGHT,"Soul of Flight");
 
         //blocks
         add(ModBlocks.ICHORIUM_ORE, "Ichorium Ore");
@@ -40,6 +42,9 @@ public class GeneratorLang extends LanguageProvider
         add(ModBlocks.CRYSTAL_HEART, "Crystal Heart");
         add(ModBlocks.HUNGRY_CHEST, "Hungry Chest");
         add(ModBlocks.GREATWOOD_PLANK, "Greatwood Plank");
+        add(ModBlocks.SOUL_FORGE, "Soul Forge");
+
+        add(ModEntities.MANDRAKE, "Mandrake");
 
         //fluid
         add("fluid.otherworld.ichor_fluid", "Ichorium Essence");
@@ -52,6 +57,7 @@ public class GeneratorLang extends LanguageProvider
         add(REPAIR, "Repair");
         add(AUTO_SMELT, "Auto-Smelt");
         add(AUTO_PICKUP, "Auto-Pickup");
+        add(REAPING, "Reaping");
 
         //advancements
         add("advancementTab.otherworld", "Otherworld");
@@ -63,6 +69,7 @@ public class GeneratorLang extends LanguageProvider
         add(tooltip(RECALL_POTION), "Returns user to bed or overworld spawn");
         add(tooltip(UMBRELLA), "\"Im Mary Poppins yall!\"");
         add(tooltip(TAGLOCK), "Bound to: ");
+        add(tooltip(SOUL_OF_FLIGHT), "The essence of powerful flying creatures");
     }
 
     private String tooltip(Item item) { return "tooltip." + item.getRegistryName(); }

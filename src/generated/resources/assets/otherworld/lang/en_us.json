@@ -11,6 +11,7 @@
   "enchantment.otherworld.auto_smelt": "Auto-Smelt",
   "enchantment.otherworld.beheading": "Beheading",
   "enchantment.otherworld.life_steal": "Life Steal",
+  "enchantment.otherworld.reaping": "Reaping",
   "enchantment.otherworld.repair": "Repair",
   "enchantment.otherworld.soulbound": "Soulbound",
   "fluid.otherworld.ichor_fluid": "Ichorium Essence",
@@ -22,11 +23,13 @@
   "item.otherworld.magic_mirror": "Magical Mirror",
   "item.otherworld.mandrake_root": "Mandrake Root",
   "item.otherworld.recall_potion": "Recall Potion",
+  "item.otherworld.soul_of_flight": "Soul of Flight",
   "item.otherworld.taglock": "Taglock",
   "itemGroup.otherworld": "Otherworld",
   "tooltip.otherworld:life_crystal": "This shiny item resembles a heart and probably not edible, wonder what it tastes like",
   "tooltip.otherworld:magic_mirror": "Mirror mirror in my hand, take me from this far-away land",
   "tooltip.otherworld:recall_potion": "Returns user to bed or overworld spawn",
+  "tooltip.otherworld:soul_of_flight": "The essence of powerful flying creatures",
   "tooltip.otherworld:taglock": "Bound to: ",
   "tooltip.otherworld:umbrella": "\"Im Mary Poppins yall!\""
 }

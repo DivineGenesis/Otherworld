@@ -16,11 +16,18 @@ public class ModItems
         HEART = new ItemLifeCrystal("life_crystal"),
         LIFE_FRUIT = new ItemLifeFruit("life_fruit"),
         RECALL_POTION = new ItemRecallPotion("recall_potion"),
-        WINGS = new ItemWings("wings"),
+        BROKEN_BAT_WING = new ItemBase("broken_bat_wing"),
+        TATTERED_BEE_WING = new ItemBase("tattered_bee_wing"),
+        BAT_WINGS = new ItemWings("wings"),
+        PHANTOM_WINGS = new ItemWings("phantom_wings"),
+        BEE_WINGS = new ItemWings("bee_wings"),
         UMBRELLA = new ItemUmbrella("umbrella"),
         SOUL_EXTRACTOR = new ItemSoulExtractor("soul_extractor"),
 
+        SOUL_OF_FLIGHT = new ItemBase("soul_of_flight"),
+
         MANDRAKE_ROOT = new ItemBase("mandrake_root"),
+        MANDRAKE_SEED = new ItemBase("mandrake_seed"),
         BUCKTHORN = new ItemBase("buckthorn"),
 
         TAGLOCK = new ItemTaglock("taglock"),

@@ -21,10 +21,11 @@ public class GeneratorItemModels extends ItemModelProvider
     protected void registerModels()
     {
         ModBlocks.BLOCKS.forEach(block -> registerBlockModel(block));
-        //ModItems.ITEMS.forEach(item -> {
+        //ModItems.ITEMS.forEach(item -> registerItemModel(item));
         registerItemModel(ModItems.RECALL_POTION);
-        registerItemModel(ModItems.WINGS);
+        registerItemModel(ModItems.BAT_WINGS);
         registerItemModel(ModItems.MANDRAKE_ROOT);
+        registerItemModel(ModItems.SOUL_OF_FLIGHT);
     }
 
     private void registerBlockModel(Block block) {

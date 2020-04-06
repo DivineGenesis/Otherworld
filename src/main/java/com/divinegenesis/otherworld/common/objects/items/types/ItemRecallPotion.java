@@ -39,7 +39,7 @@ public class ItemRecallPotion extends ItemBase
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         playerIn.setActiveHand(handIn);
-        return new ActionResult<>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
+        return new ActionResult<>(ActionResultType.CONSUME, playerIn.getHeldItem(handIn));
     }
 
     @Override
