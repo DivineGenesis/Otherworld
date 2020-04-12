@@ -44,7 +44,7 @@ public class GeneratorLang extends LanguageProvider
         add(ModBlocks.GREATWOOD_PLANK, "Greatwood Plank");
         add(ModBlocks.SOUL_FORGE, "Soul Forge");
 
-        add(ModEntities.MANDRAKE, "Mandrake");
+        //add(ModEntities.MANDRAKE, "Mandrake");
 
         //fluid
         add("fluid.otherworld.ichor_fluid", "Ichorium Essence");

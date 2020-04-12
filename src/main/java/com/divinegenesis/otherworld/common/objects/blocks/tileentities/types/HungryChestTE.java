@@ -1,47 +1,50 @@
 package com.divinegenesis.otherworld.common.objects.blocks.tileentities.types;
 
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
+import com.divinegenesis.otherworld.common.objects.blocks.types.BlockHungryChest;
+import net.minecraft.block.Block;
+import net.minecraft.block.ChestBlock;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.IChestLid;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
+import net.minecraft.tileentity.LockableTileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.INBTSerializable;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.sound.SoundEvent;
 
-import javax.annotation.Nullable;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class HungryChestTE extends LockableLootTileEntity implements ITickableTileEntity
+
+@OnlyIn(value = Dist.CLIENT, _interface = IChestLid.class)
+public class HungryChestTE extends LockableLootTileEntity implements ITickableTileEntity, IChestLid
 {
     private NonNullList<ItemStack> chestContents;
-    private int range = 3;
+    private int range;
+
+    private float prevLidAngle;
+    private float lidAngle;
+    private int numPlayersUsing;
+    private int ticksSinceSync;
 
     public HungryChestTE() {
         super(ModTileEntities.HUNGRY_CHEST);
         this.chestContents = NonNullList.<ItemStack>withSize(getSizeInventory(), ItemStack.EMPTY);
+        this.range = 3;
     }
 
     @Override
@@ -49,6 +52,39 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
     {
         if(!world.isRemote() && world.getGameTime() % 20 == 0)
         {
+            int i = this.pos.getX();
+            int j = this.pos.getY();
+            int k = this.pos.getZ();
+            ++this.ticksSinceSync;
+            this.numPlayersUsing = getNumberOfPlayersUsing(this.world, this, this.ticksSinceSync, i, j, k, this.numPlayersUsing);
+            this.prevLidAngle = this.lidAngle;
+            float f = 0.1F;
+            if (this.numPlayersUsing > 0 && this.lidAngle == 0.0F) {
+                //this.playSound(SoundEvents.BLOCK_CHEST_OPEN);
+            }
+
+            if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F) {
+                float f1 = this.lidAngle;
+                if (this.numPlayersUsing > 0) {
+                    this.lidAngle += 0.1F;
+                } else {
+                    this.lidAngle -= 0.1F;
+                }
+
+                if (this.lidAngle > 1.0F) {
+                    this.lidAngle = 1.0F;
+                }
+
+                float f2 = 0.5F;
+                if (this.lidAngle < 0.5F && f1 >= 0.5F) {
+                    //this.playSound(SoundEvents.BLOCK_CHEST_CLOSE);
+                }
+
+                if (this.lidAngle < 0.0F) {
+                    this.lidAngle = 0.0F;
+                }
+            }
+
             AxisAlignedBB aoe = new AxisAlignedBB(
                     pos.getX()-range,
                     pos.getY()-range,
@@ -64,7 +100,7 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
 
             for (ItemEntity e : list)
             {
-                for(int i = 0; i < getSizeInventory(); i++)
+                for(int x = 0; x < getSizeInventory(); x++)
                 {
 
                 }
@@ -80,14 +116,15 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
         if (!this.checkLootAndRead(compound)) {
             ItemStackHelper.loadAllItems(compound, this.chestContents);
         }
-
+        this.range = compound.getInt("range");
     }
 
     @Override
     public CompoundNBT write(CompoundNBT compound)
     {
         super.write(compound);
-        ItemStackHelper.saveAllItems(compound, chestContents);
+        ItemStackHelper.saveAllItems(compound, this.chestContents);
+        compound.putInt("range", this.range);
         return compound;
     }
 
@@ -100,7 +137,6 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
     protected Container createMenu(int id, PlayerInventory player) {
         return ChestContainer.createGeneric9X3(id, player, this);
     }
-
 
     @Override
     public int getSizeInventory() {
@@ -160,4 +196,69 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
             }
         }
     }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public float getLidAngle(float partialTicks) {
+        return MathHelper.lerp(partialTicks, this.prevLidAngle, this.lidAngle);
+    }
+
+    public boolean receiveClientEvent(int id, int type) {
+        if (id == 1) {
+            this.numPlayersUsing = type;
+            return true;
+        } else {
+            return super.receiveClientEvent(id, type);
+        }
+    }
+
+    public void openInventory(PlayerEntity player) {
+        if (!player.isSpectator()) {
+            if (this.numPlayersUsing < 0) {
+                this.numPlayersUsing = 0;
+            }
+
+            ++this.numPlayersUsing;
+            this.onOpenOrClose();
+        }
+
+    }
+
+    public void closeInventory(PlayerEntity player) {
+        if (!player.isSpectator()) {
+            --this.numPlayersUsing;
+            this.onOpenOrClose();
+        }
+
+    }
+
+    protected void onOpenOrClose() {
+        Block block = this.getBlockState().getBlock();
+        if (block instanceof BlockHungryChest) {
+            this.world.addBlockEvent(this.pos, block, 1, this.numPlayersUsing);
+            this.world.notifyNeighborsOfStateChange(this.pos, block);
+        }
+
+    }
+
+    public static int getNumberOfPlayersUsing(World worldIn, LockableTileEntity lockableTileEntity, int ticksSinceSync, int x, int y, int z, int numPlayersUsing) {
+        if (!worldIn.isRemote && numPlayersUsing != 0 && (ticksSinceSync + x + y + z) % 200 == 0) {
+            numPlayersUsing = getNumberOfPlayersUsing(worldIn, lockableTileEntity, x, y, z);
+        }
+
+        return numPlayersUsing;
+    }
+
+    public static int getNumberOfPlayersUsing(World world, LockableTileEntity lockableTileEntity, int x, int y, int z) {
+        int i = 0;
+
+        for (PlayerEntity playerentity : world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB((double) ((float) x - 5.0F), (double) ((float) y - 5.0F), (double) ((float) z - 5.0F), (double) ((float) (x + 1) + 5.0F), (double) ((float) (y + 1) + 5.0F), (double) ((float) (z + 1) + 5.0F)))) {
+            if (playerentity.openContainer instanceof ChestContainer) {
+                ++i;
+            }
+        }
+
+        return i;
+    }
+
 }

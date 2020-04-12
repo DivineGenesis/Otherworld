@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.objects.blocks;
 
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
 import com.divinegenesis.otherworld.common.objects.blocks.types.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -21,7 +22,7 @@ public class ModBlocks
         GREATWOOD_PLANK = new BlockBase("greatwood_plank", Block.Properties.create(Material.WOOD).sound(SoundType.WOOD)),
         GREATWOOD_LEAVES = new BlockBase("greatwood_leaves", Material.LEAVES),
         GREATWOOD_SAPLING = new BlockBase("greatwood_sapling", Material.PLANTS),
-        HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD),
+        HUNGRY_CHEST = new BlockHungryChest("hungry_chest", Material.WOOD, () -> {return ModTileEntities.HUNGRY_CHEST; }),
         CRYSTAL_HEART = new BlockCrystalHeart("crystal_heart", Material.ROCK),
         RACK = new BlockRack(),
         SOUL_FORGE = new BlockSoulForge("soul_forge", Material.ROCK),

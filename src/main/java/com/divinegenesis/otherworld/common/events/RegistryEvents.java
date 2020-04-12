@@ -52,7 +52,7 @@ public class RegistryEvents
     @SubscribeEvent
     public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
         event.getRegistry().registerAll(
-                ModTileEntities.HUNGRY_CHEST = TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te")),
+                ModTileEntities.HUNGRY_CHEST = (TileEntityType<HungryChestTE>) TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te")),
                 ModTileEntities.SOUL_FORGE = TileEntityType.Builder.create(SoulForgeTE::new, ModBlocks.SOUL_FORGE).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "soulforge_te"))
         );
     }
