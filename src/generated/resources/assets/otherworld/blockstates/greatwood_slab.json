@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "otherworld:block/greatwood_slab_top"
+    },
+    "type=bottom": {
+      "model": "otherworld:block/greatwood_slab"
+    },
+    "type=double": {
+      "model": "otherworld:block/greatwood_plank"
+    }
+  }
+}

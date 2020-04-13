@@ -1,7 +1,9 @@
 package com.divinegenesis.otherworld.common.objects.items;
 
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.objects.items.types.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +29,11 @@ public class ModItems
         SOUL_OF_FLIGHT = new ItemBase("soul_of_flight"),
 
         MANDRAKE_ROOT = new ItemBase("mandrake_root"),
-        MANDRAKE_SEED = new ItemBase("mandrake_seed"),
+        MANDRAKE_SEED = new BlockItemBase(ModBlocks.MANDRAKE_CROP, "mandrake_seed"),
         BUCKTHORN = new ItemBase("buckthorn"),
 
         TAGLOCK = new ItemTaglock("taglock"),
         BONE_NEEDLE = new ItemBase("bone_needle"),
         POPPET = new ItemBase("poppet");
+
 }
