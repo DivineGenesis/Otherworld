@@ -35,6 +35,9 @@ public class GeneratorLang extends LanguageProvider
         add(TAGLOCK, "Taglock");
         add(BONE_NEEDLE, "Bone Needle");
         add(SOUL_OF_FLIGHT,"Soul of Flight");
+        add(BAT_WINGS, "Bat Wings");
+        add(PHANTOM_WINGS, "Phantom Wings");
+        add(BEE_WINGS, "Bee Wings");
 
         //blocks
         add(ModBlocks.ICHORIUM_ORE, "Ichorium Ore");

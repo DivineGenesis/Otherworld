@@ -24,6 +24,8 @@ public class GeneratorItemModels extends ItemModelProvider
         //ModItems.ITEMS.forEach(item -> registerItemModel(item));
         registerItemModel(ModItems.RECALL_POTION);
         registerItemModel(ModItems.BAT_WINGS);
+        registerItemModel(ModItems.PHANTOM_WINGS);
+        registerItemModel(ModItems.BEE_WINGS);
         registerItemModel(ModItems.MANDRAKE_ROOT);
         registerItemModel(ModItems.SOUL_OF_FLIGHT);
     }

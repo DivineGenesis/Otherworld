@@ -18,7 +18,7 @@ public class ModItems
         RECALL_POTION = new ItemRecallPotion("recall_potion"),
         BROKEN_BAT_WING = new ItemBase("broken_bat_wing"),
         TATTERED_BEE_WING = new ItemBase("tattered_bee_wing"),
-        BAT_WINGS = new ItemWings("wings"),
+        BAT_WINGS = new ItemWings("bat_wings"),
         PHANTOM_WINGS = new ItemWings("phantom_wings"),
         BEE_WINGS = new ItemWings("bee_wings"),
         UMBRELLA = new ItemUmbrella("umbrella"),
