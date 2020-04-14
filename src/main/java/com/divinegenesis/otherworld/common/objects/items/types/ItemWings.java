@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
@@ -25,10 +26,10 @@ import top.theillusivec4.curios.api.capability.ICurio;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemWings extends ItemBase {
+public class ItemWings extends Item {
 
-    public ItemWings(String name) {
-        super(name);
+    public ItemWings(Properties properties) {
+        super(properties);
     }
 
     @Override

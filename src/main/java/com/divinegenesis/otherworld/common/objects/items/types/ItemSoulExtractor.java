@@ -3,6 +3,7 @@ package com.divinegenesis.otherworld.common.objects.items.types;
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
@@ -10,9 +11,9 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ItemSoulExtractor extends ItemBase {
-    public ItemSoulExtractor(String name) {
-        super(name);
+public class ItemSoulExtractor extends Item {
+    public ItemSoulExtractor(Properties properties) {
+        super(properties);
     }
 
     @Override

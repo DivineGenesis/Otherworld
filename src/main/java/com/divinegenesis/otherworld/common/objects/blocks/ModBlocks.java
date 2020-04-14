@@ -6,6 +6,7 @@ import com.divinegenesis.otherworld.common.objects.blocks.types.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,6 @@ import java.util.function.Supplier;
 public class ModBlocks
 {
     public static final List<Block> BLOCKS = new ArrayList<Block>();
-
     public static final Block
         ICHORIUM_ORE = register("ichorium_ore", new Block(Block.Properties.create(Material.ROCK))),
         URN = register("urn", new BlockUrn(Block.Properties.create(Material.GLASS))),

@@ -1,6 +1,7 @@
 package com.divinegenesis.otherworld.common.objects.items.types;
 
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -10,11 +11,11 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class ItemMagicMirror extends ItemBase
+public class ItemMagicMirror extends Item
 {
-    public ItemMagicMirror(String name)
+    public ItemMagicMirror(Properties properties)
     {
-        super(name);
+        super(properties);
     }
 
     @Override

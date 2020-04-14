@@ -3,6 +3,7 @@ package com.divinegenesis.otherworld.common.objects.items.types;
 import com.divinegenesis.otherworld.common.ModSounds;
 import com.divinegenesis.otherworld.common.helpers.HealthHelper;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -12,10 +13,10 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class ItemLifeCrystal extends ItemBase {
+public class ItemLifeCrystal extends Item {
 
-    public ItemLifeCrystal(String name) {
-        super(name);
+    public ItemLifeCrystal(Properties properties) {
+        super(properties);
     }
 
     @Override

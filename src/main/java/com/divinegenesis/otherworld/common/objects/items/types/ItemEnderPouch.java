@@ -4,6 +4,7 @@ package com.divinegenesis.otherworld.common.objects.items.types;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -12,10 +13,10 @@ import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-public class ItemEnderPouch extends ItemBase
+public class ItemEnderPouch extends Item
 {
-    public ItemEnderPouch(String name) {
-        super(name);
+    public ItemEnderPouch(Properties properties) {
+        super(properties);
     }
 
     @Override
