@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "otherworld:rack"
+          "name": "otherworld:witchwood_fence"
         }
       ],
       "conditions": [

@@ -17,8 +17,6 @@ public class BlockMandrakePlant extends CropsBlock
 
     public BlockMandrakePlant(Properties builder) {
         super(builder);
-        setRegistryName("mandrake_crop");
-        ModBlocks.BLOCKS.add(this);
     }
 
     @Override

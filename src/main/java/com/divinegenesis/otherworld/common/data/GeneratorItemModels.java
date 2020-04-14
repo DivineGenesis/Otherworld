@@ -2,9 +2,9 @@ package com.divinegenesis.otherworld.common.data;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.objects.blocks.types.BlockFence;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.FenceBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
@@ -23,7 +23,7 @@ public class GeneratorItemModels extends ItemModelProvider
     {
         ModBlocks.BLOCKS.forEach(block -> {
 
-            if(block instanceof BlockFence)
+            if(block instanceof FenceBlock)
             {
             }
             else
@@ -37,6 +37,7 @@ public class GeneratorItemModels extends ItemModelProvider
         registerItemModel(ModItems.MANDRAKE_ROOT);
         registerItemModel(ModItems.SOUL_OF_FLIGHT);
         registerFence(ModBlocks.GREATWOOD_FENCE, "greatwood_plank");
+        registerFence(ModBlocks.WITCHWOOD_FENCE, "witchwood_plank");
     }
 
     private void registerBlockModel(Block block) {

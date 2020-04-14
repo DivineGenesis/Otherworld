@@ -44,11 +44,18 @@ public class GeneratorLang extends LanguageProvider
         add(ModBlocks.URN, "Urn");
         add(ModBlocks.CRYSTAL_HEART, "Crystal Heart");
         add(ModBlocks.HUNGRY_CHEST, "Hungry Chest");
+        add(ModBlocks.GREATWOOD_LOG, "Greatwood Logs");
         add(ModBlocks.GREATWOOD_PLANK, "Greatwood Planks");
         add(ModBlocks.GREATWOOD_STAIRS, "Greatwood Stairs");
         add(ModBlocks.GREATWOOD_SLAB, "Greatwood Slab");
         add(ModBlocks.GREATWOOD_FENCE, "Greatwood Fence");
         add(ModBlocks.GREATWOOD_GATE, "Greatwood Fence Gate");
+        add(ModBlocks.WITCHWOOD_LOG, "Witchwood Logs");
+        add(ModBlocks.WITCHWOOD_PLANK, "Witchwood Planks");
+        add(ModBlocks.WITCHWOOD_STAIRS, "Witchwood Stairs");
+        add(ModBlocks.WITCHWOOD_SLAB, "Witchwood Slab");
+        add(ModBlocks.WITCHWOOD_FENCE, "Witchwood Fence");
+        add(ModBlocks.WITCHWOOD_GATE, "Witchwood Fence Gate");
         add(ModBlocks.SOUL_FORGE, "Soul Forge");
 
         //add(ModEntities.MANDRAKE, "Mandrake");

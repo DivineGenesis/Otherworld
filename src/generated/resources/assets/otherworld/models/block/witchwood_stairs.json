@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "side": "otherworld:block/witchwood_plank",
+    "bottom": "otherworld:block/witchwood_plank",
+    "top": "otherworld:block/witchwood_plank"
+  }
+}

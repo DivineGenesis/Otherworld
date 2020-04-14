@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "otherworld:block/greatwood_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "otherworld:block/greatwood_log"
+    },
+    "axis=z": {
+      "model": "otherworld:block/greatwood_log",
+      "x": 90
+    }
+  }
+}

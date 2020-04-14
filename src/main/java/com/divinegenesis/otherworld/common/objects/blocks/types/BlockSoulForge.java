@@ -23,12 +23,9 @@ import javax.annotation.Nullable;
 
 public class BlockSoulForge extends AbstractFurnaceBlock
 {
-    public BlockSoulForge(String name, Material material)
+    public BlockSoulForge(Properties properties)
     {
-        super(Block.Properties.create(material));
-        this.setRegistryName(name);
-
-        ModBlocks.BLOCKS.add(this);
+        super(properties);
     }
 
     @Override

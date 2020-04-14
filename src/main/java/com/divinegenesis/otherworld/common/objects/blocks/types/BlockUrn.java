@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.objects.blocks.types;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,11 +14,11 @@ import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
 
-public class BlockUrn extends BlockBase
+public class BlockUrn extends Block
 {
-    public BlockUrn(String name, Material material)
+    public BlockUrn(Properties properties)
     {
-        super(name, material);
+        super(properties);
     }
 
     @Override

@@ -12,13 +12,13 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class BlockCrystalHeart extends BlockBase implements IWaterLoggable
+public class BlockCrystalHeart extends Block implements IWaterLoggable
 {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public BlockCrystalHeart(String name, Material material)
+    public BlockCrystalHeart(Properties properties)
     {
-        super(name, material);
+        super(properties);
         this.setDefaultState(getDefaultState().with(WATERLOGGED, false));
     }
 

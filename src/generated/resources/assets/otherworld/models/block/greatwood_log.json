@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "otherworld:block/greatwood_log",
+    "end": "otherworld:block/greatwood_log_top"
+  }
+}

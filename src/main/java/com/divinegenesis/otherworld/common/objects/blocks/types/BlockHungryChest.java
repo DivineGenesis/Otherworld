@@ -39,12 +39,9 @@ public class BlockHungryChest extends ContainerBlock implements IWaterLoggable
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private final Supplier<TileEntityType<? extends HungryChestTE>> tileEntityTypeSupplier;
 
-    public BlockHungryChest(String name, Material material, Supplier<TileEntityType<? extends HungryChestTE>> supplier)
+    public BlockHungryChest(Material material, Supplier<TileEntityType<? extends HungryChestTE>> supplier)
     {
         super(Block.Properties.create(material));
-        this.setRegistryName(name);
-
-        ModBlocks.BLOCKS.add(this);
         this.tileEntityTypeSupplier = supplier;
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
