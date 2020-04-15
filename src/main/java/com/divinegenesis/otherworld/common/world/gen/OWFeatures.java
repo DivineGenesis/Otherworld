@@ -4,14 +4,11 @@ import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.world.gen.features.HeartCrystalFeature;
 import com.divinegenesis.otherworld.common.world.gen.features.UrnFeature;
 import com.google.common.collect.Lists;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.List;
 
@@ -20,10 +17,12 @@ public class OWFeatures
 {
     private static List<Feature<?>> features = Lists.newArrayList();
 
-    public static final Feature<NoFeatureConfig> CRYSTAL_HEART = registerFeature("heart_crystal", new HeartCrystalFeature(NoFeatureConfig::deserialize));
-    public static final Feature<NoFeatureConfig> URNS = registerFeature("urns", new UrnFeature(NoFeatureConfig::deserialize));
+    public static final Feature<NoFeatureConfig>
+            CRYSTAL_HEART = register("heart_crystal", new HeartCrystalFeature(NoFeatureConfig::deserialize));
+    public static final Feature<?> URNS = register("urns", new UrnFeature(NoFeatureConfig::deserialize));
+            //GREATWOOD_TREE = register("greatwood_tree", );
 
-    private static Feature registerFeature(String key, Feature feature)
+    private static Feature register(String key, Feature feature)
     {
         feature.setRegistryName(Otherworld.MODID, key);
         features.add(feature);

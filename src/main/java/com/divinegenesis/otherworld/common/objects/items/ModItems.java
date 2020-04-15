@@ -4,6 +4,7 @@ import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.objects.items.types.*;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
@@ -33,9 +34,8 @@ public class ModItems
         SOUL_OF_FLIGHT = register("soul_of_flight", new Item(BASE)),
 
         MANDRAKE_ROOT = register("mandrake_root", new Item(BASE)),
-        MANDRAKE_SEED = register("mandrake_seed", new BlockItem(ModBlocks.MANDRAKE_CROP, BASE)),
+        MANDRAKE_SEED = register("mandrake_seeds", new BlockNamedItem(ModBlocks.MANDRAKE_CROP, BASE)),
         BUCKTHORN = register("buckthorn", new Item(BASE)),
-
         TAGLOCK = register("taglock", new ItemTaglock(BASE)),
         BONE_NEEDLE = register("bone_needle", new Item(BASE)),
         POPPET =  register("poppet", new Item(BASE));

@@ -1,6 +1,8 @@
 package com.divinegenesis.otherworld.common.objects.blocks.types;
 
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.entities.ModEntities;
+import com.divinegenesis.otherworld.common.objects.entities.types.MandrakeEntity;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -30,11 +32,11 @@ public class BlockMandrakePlant extends CropsBlock
         Random rand = new Random();
         int x = rand.nextInt(100) + 1;
 
-        if( (x <= 35 && worldIn.getDayTime() >= 12500) || (x <= 75 && worldIn.getDayTime() < 12500)) {
+        if( (x <= 15 && worldIn.getDayTime() >= 12500) || (x <= 75 && worldIn.getDayTime() < 12500)) {
 
-//            EntityMandrake mandrake = new EntityMandrake(worldIn);
-//            mandrake.setLocationAndAngles(pos.getX(), pos.getY(), pos.getZ(), 159, 62);
-//            worldIn.spawnEntity(mandrake);
+            MandrakeEntity mandrake = new MandrakeEntity(ModEntities.MANDRAKE, worldIn);
+            mandrake.setLocationAndAngles(pos.getX(), pos.getY(), pos.getZ(), 159, 62);
+            worldIn.addEntity(mandrake);
         }
         super.onBlockHarvested(worldIn, pos, state, player);
     }

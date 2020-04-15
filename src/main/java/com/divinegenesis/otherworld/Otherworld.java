@@ -1,11 +1,13 @@
 package com.divinegenesis.otherworld;
 
+import com.divinegenesis.otherworld.client.ClientHandler;
 import com.divinegenesis.otherworld.client.renderer.HungryChestRenderer;
 import com.divinegenesis.otherworld.client.screens.SoulForgeScreen;
 import com.divinegenesis.otherworld.common.containers.ModContainers;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
+import com.divinegenesis.otherworld.common.objects.entities.types.MandrakeEntity;
 import com.divinegenesis.otherworld.common.objects.fluids.ModFluids;
 import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
 import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
@@ -17,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -61,8 +64,7 @@ public class Otherworld
 
     private void onClientSetup(final FMLClientSetupEvent event)
     {
-        ScreenManager.registerFactory(ModContainers.SOULFORGE_CONTAINER.get(), SoulForgeScreen::new);
-        ClientRegistry.bindTileEntityRenderer(ModTileEntities.HUNGRY_CHEST, HungryChestRenderer::new);
+        ClientHandler.register();
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

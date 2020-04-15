@@ -10,12 +10,15 @@ import com.divinegenesis.otherworld.common.objects.entities.ModEntities;
 import com.divinegenesis.otherworld.common.objects.entities.types.MandrakeEntity;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -36,11 +39,14 @@ public class RegistryEvents
     public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
     {
         Otherworld.LOGGER.info("Registering blockitems...");
-        ModBlocks.BLOCKS.forEach(block -> event.getRegistry()
-                .register(new BlockItem(block, new Item.Properties().group(Otherworld.OWTAB)).setRegistryName(block.getRegistryName())));
+        ModBlocks.BLOCKS.forEach(block -> {
+            event.getRegistry()
+                    .register(new BlockItem(block, new Item.Properties().group(Otherworld.OWTAB)).setRegistryName(block.getRegistryName()));
+        });
 
         Otherworld.LOGGER.info("Registering items...");
         ModItems.ITEMS.forEach(item -> event.getRegistry().register(item));
+        ModEntities.ENTITY_TYPES.forEach(entityType -> event.getRegistry().register(new SpawnEggItem(entityType, 5, 8, new Item.Properties().group(Otherworld.OWTAB)).setRegistryName(entityType.getRegistryName()+"_egg")));
     }
 
     @SubscribeEvent
@@ -60,11 +66,6 @@ public class RegistryEvents
     @SubscribeEvent
     public static void OnEntityRegistry(final RegistryEvent.Register<EntityType<?>> event)
     {
-//        event.getRegistry().register(
-//                ModEntities.MANDRAKE = EntityType.Builder.create(MandrakeEntity::new, EntityClassification.MONSTER)
-//                        .size(1f, 1f)
-//                        .build("mandrake")
-//                        .setRegistryName(new ResourceLocation(Otherworld.MODID, "mandrake"))
-//                );
+        ModEntities.ENTITY_TYPES.forEach(entityType -> event.getRegistry().register(entityType));
     }
 }

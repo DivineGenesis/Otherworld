@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "otherworld:block/witchwood_log",
+    "end": "otherworld:block/witchwood_log_top"
+  }
+}

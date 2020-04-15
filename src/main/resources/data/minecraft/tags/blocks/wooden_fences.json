@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "otherworld:greatwood_fence"
+    "otherworld:greatwood_fence",
+    "otherworld:witchwood_fence"
     ]
 }

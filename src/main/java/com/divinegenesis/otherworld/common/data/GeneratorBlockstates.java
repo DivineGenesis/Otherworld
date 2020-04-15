@@ -27,6 +27,8 @@ public class GeneratorBlockstates extends BlockStateProvider
         buildCubeAll(ModBlocks.WITCHWOOD_PLANK);
         buildCubeAll(ModBlocks.CRYSTAL_HEART);
         logBlock((LogBlock) ModBlocks.GREATWOOD_LOG);
+        logBlock((LogBlock) ModBlocks.WITCHWOOD_LOG);
+        buildCubeAll(ModBlocks.WITCHWOOD_LEAVES);
         stairsBlock((StairsBlock) ModBlocks.GREATWOOD_STAIRS, GREATWOOD);
         stairsBlock((StairsBlock) ModBlocks.WITCHWOOD_STAIRS, WITCHWOOD);
         fenceBlock((FenceBlock) ModBlocks.GREATWOOD_FENCE, GREATWOOD);
