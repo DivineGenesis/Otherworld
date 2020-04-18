@@ -23,13 +23,11 @@ public class ModItems
         HEART = register("life_crystal", new ItemLifeCrystal(BASE)),
         LIFE_FRUIT = register("life_fruit", new ItemLifeFruit(BASE)),
         RECALL_POTION = register("recall_potion", new ItemRecallPotion(BASE)),
-        BROKEN_BAT_WING = register("broken_bat_wing", new Item(BASE)),
-        TATTERED_BEE_WING = register("tattered_bee_wing", new Item(BASE)),
+//        BROKEN_BAT_WING = register("broken_bat_wing", new Item(BASE)),
+//        TATTERED_BEE_WING = register("tattered_bee_wing", new Item(BASE)),
         BAT_WINGS = register("bat_wings", new ItemWings(BASE)),
         PHANTOM_WINGS = register("phantom_wings", new ItemWings(BASE)),
         BEE_WINGS = register("bee_wings", new ItemWings(BASE)),
-        UMBRELLA = register("umbrella", new ItemUmbrella(BASE)),
-        SOUL_EXTRACTOR = register("soul_extractor", new ItemSoulExtractor(BASE)),
 
         SOUL_OF_FLIGHT = register("soul_of_flight", new Item(BASE)),
 

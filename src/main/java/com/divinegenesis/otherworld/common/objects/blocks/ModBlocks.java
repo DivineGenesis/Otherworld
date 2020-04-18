@@ -41,6 +41,7 @@ public class ModBlocks
         HUNGRY_CHEST = register("hungry_chest", new BlockHungryChest(Material.WOOD, () -> { return ModTileEntities.HUNGRY_CHEST; })),
         CRYSTAL_HEART = register("crystal_heart", new BlockCrystalHeart(Block.Properties.create(Material.ROCK))),
         SOUL_FORGE = register("soul_forge", new BlockSoulForge(Block.Properties.create(Material.ROCK))),
+        TRAVELLER_PAVEMENT = register("traveller_pavement", new Block(Block.Properties.create(Material.WOOD))),
         MANDRAKE_CROP = register("mandrake", new BlockMandrakePlant(Block.Properties.create(Material.PLANTS)));
 
     private static Block register(String name, Block block)

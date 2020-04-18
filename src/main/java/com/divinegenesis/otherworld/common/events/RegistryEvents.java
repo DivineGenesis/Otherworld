@@ -21,6 +21,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -40,8 +41,13 @@ public class RegistryEvents
     {
         Otherworld.LOGGER.info("Registering blockitems...");
         ModBlocks.BLOCKS.forEach(block -> {
+            Item.Properties properties = new Item.Properties();
+
+            if(!(block instanceof CropsBlock))
+                properties.group(Otherworld.OWTAB);
+
             event.getRegistry()
-                    .register(new BlockItem(block, new Item.Properties().group(Otherworld.OWTAB)).setRegistryName(block.getRegistryName()));
+                    .register(new BlockItem(block, properties).setRegistryName(block.getRegistryName()));
         });
 
         Otherworld.LOGGER.info("Registering items...");

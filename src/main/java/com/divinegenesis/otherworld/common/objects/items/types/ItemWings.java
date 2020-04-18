@@ -5,7 +5,9 @@ import com.divinegenesis.otherworld.common.capability.curios.CuriosItemCapabilit
 import com.divinegenesis.otherworld.common.capability.curios.IOWCurio;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.Quaternion;
 import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -48,7 +50,10 @@ public class ItemWings extends Item {
     {
         return CuriosItemCapability.createProvider(new IOWCurio()
         {
-            private Object model;
+            private int flight = 40; // seconds*20 ticks
+            private boolean in = true;
+            private boolean flying;
+            private float degrees = -33.3f;
             @Override
             public void onCurioTick(String identifier, int index, LivingEntity livingEntity)
             {
@@ -59,8 +64,25 @@ public class ItemWings extends Item {
 
                     if (!player.onGround && isJumping)
                     {
+                        flying = true;
                         Vec3d vec = player.getMotion();
-                        player.setMotion(new Vec3d(vec.x, vec.y + .0999999995D, vec.z));
+                        double x = vec.x * (1.08);
+                        double y = vec.y;
+                        double z = vec.z * (1.08);
+                        if(flight > 0) {
+                            y = y + 0.095D;
+                            flight--;
+                        }
+                        else
+                        {
+                            if(y < -0.15D)
+                                y = -0.15D;
+                        }
+                        player.setMotion(new Vec3d(x, y, z));
+                    }
+                    else if(player.onGround) {
+                        flight = 40;
+                        flying = false;
                     }
                 }
             }
@@ -70,25 +92,42 @@ public class ItemWings extends Item {
                 return true;
             }
 
+            //TODO: Higher res wings? Allows wings to be better scaled on player
             @Override
-            public void render(String identifier, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer, int light, LivingEntity livingEntity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+            public void render(String identifier, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer, int light, LivingEntity livingEntity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch)
+            {
+                matrixStack.push();
+                ICurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
+                ICurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
+                matrixStack.translate(0d, 0d, 0.1d);
+                matrixStack.rotate(Vector3f.ZP.rotationDegrees(180f));
+
+                matrixStack.translate(0d, 0d, 0d);
+                matrixStack.rotate(Vector3f.YP.rotationDegrees(degrees));
+                matrixStack.translate(-0.5d, 0d, 0d);
+
+                Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.NONE, light, OverlayTexture.DEFAULT_LIGHT, matrixStack, renderTypeBuffer);
+                matrixStack.pop();
 
                 matrixStack.push();
                 ICurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
                 ICurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
-                matrixStack.scale(1.2f, 1.2f, 1.2f);
-                matrixStack.translate(0.3d, 0.1d, 0.3d);
+                matrixStack.translate(0d, 0d, 0.1d);
                 matrixStack.rotate(Vector3f.ZP.rotationDegrees(180f));
-                matrixStack.rotate(Vector3f.YP.rotationDegrees(33.3f));
+
+                matrixStack.translate(0d, 0d, 0d);
+                matrixStack.rotate(Vector3f.YP.rotationDegrees(180 - degrees));
+                matrixStack.translate(-0.5d, 0d, 0d);
+
                 Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.NONE, light, OverlayTexture.DEFAULT_LIGHT, matrixStack, renderTypeBuffer);
                 matrixStack.pop();
-                ICurio.RenderHelper.translateIfSneaking(matrixStack, livingEntity);
-                ICurio.RenderHelper.rotateIfSneaking(matrixStack, livingEntity);
-                matrixStack.scale(1.2f, 1.2f, 1.2f);
-                matrixStack.translate(-0.3d, 0.1d, 0.3d);
-                matrixStack.rotate(Vector3f.ZP.rotationDegrees(180f));
-                matrixStack.rotate(Vector3f.YP.rotationDegrees(147.7f));
-                Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.NONE, light, OverlayTexture.DEFAULT_LIGHT, matrixStack, renderTypeBuffer);
+
+                if(in && degrees < 20f)
+                    in = false;
+                else if(!in && degrees > 60f)
+                    in = true;
+
+                if(flying) degrees = in ? degrees-.75f:degrees+.75f;
             }
         });
     }

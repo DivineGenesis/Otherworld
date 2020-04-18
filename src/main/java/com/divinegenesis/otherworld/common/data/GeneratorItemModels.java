@@ -2,6 +2,7 @@ package com.divinegenesis.otherworld.common.data;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.entities.ModEntities;
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.FenceBlock;
@@ -29,7 +30,10 @@ public class GeneratorItemModels extends ItemModelProvider
             else
                 registerBlockModel(block);
         });
+
+        ModEntities.ENTITY_TYPES.forEach(entityType -> registerItemEgg(entityType.getRegistryName().toString().replaceFirst("otherworld:","")+"_egg"));
         //ModItems.ITEMS.forEach(item -> registerItemModel(item));
+        registerItemModel(ModItems.LIFE_FRUIT);
         registerItemModel(ModItems.RECALL_POTION);
         registerItemModel(ModItems.BAT_WINGS);
         registerItemModel(ModItems.PHANTOM_WINGS);
@@ -56,6 +60,11 @@ public class GeneratorItemModels extends ItemModelProvider
     {
         String path = item.getRegistryName().getPath();
         singleTexture(path, mcLoc("item/generated"), "layer0", modLoc("items/" + path));
+    }
+
+    private void registerItemEgg(String path)
+    {
+        getBuilder(path).parent(new ModelFile.ExistingModelFile(mcLoc("item/template_spawn_egg"), existingFileHelper));
     }
 
     @Override

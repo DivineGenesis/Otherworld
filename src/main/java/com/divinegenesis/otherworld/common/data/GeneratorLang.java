@@ -81,7 +81,6 @@ public class GeneratorLang extends LanguageProvider
         add(tooltip(HEART), "This shiny item resembles a heart and probably not edible, wonder what it tastes like");
         add(tooltip(MAGIC_MIRROR), "Mirror mirror in my hand, take me from this far-away land");
         add(tooltip(RECALL_POTION), "Returns user to bed or overworld spawn");
-        add(tooltip(UMBRELLA), "\"Im Mary Poppins yall!\"");
         add(tooltip(TAGLOCK), "Bound to: ");
         add(tooltip(SOUL_OF_FLIGHT), "The essence of powerful flying creatures");
     }

@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
+import net.minecraftforge.common.model.Models;
 
 public class GeneratorBlockstates extends BlockStateProvider
 {
@@ -28,6 +29,7 @@ public class GeneratorBlockstates extends BlockStateProvider
         buildCubeAll(ModBlocks.CRYSTAL_HEART);
         logBlock((LogBlock) ModBlocks.GREATWOOD_LOG);
         logBlock((LogBlock) ModBlocks.WITCHWOOD_LOG);
+        buildCubeAll(ModBlocks.GREATWOOD_LEAVES);
         buildCubeAll(ModBlocks.WITCHWOOD_LEAVES);
         stairsBlock((StairsBlock) ModBlocks.GREATWOOD_STAIRS, GREATWOOD);
         stairsBlock((StairsBlock) ModBlocks.WITCHWOOD_STAIRS, WITCHWOOD);
