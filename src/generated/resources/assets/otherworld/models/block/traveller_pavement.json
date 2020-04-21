@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "otherworld:block/crystal_heart"
+    "all": "otherworld:block/traveller_pavement"
   }
 }

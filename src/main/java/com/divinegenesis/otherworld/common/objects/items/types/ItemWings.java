@@ -30,6 +30,7 @@ import java.util.List;
 
 public class ItemWings extends Item {
 
+    private int maxFlightTime = 40;
     public ItemWings(Properties properties) {
         super(properties);
     }
@@ -50,10 +51,11 @@ public class ItemWings extends Item {
     {
         return CuriosItemCapability.createProvider(new IOWCurio()
         {
-            private int flight = 40; // seconds*20 ticks
+            private int flight = maxFlightTime; // seconds*20 ticks
             private boolean in = true;
             private boolean flying;
-            private float degrees = -33.3f;
+            private float degrees = 33.3f;
+
             @Override
             public void onCurioTick(String identifier, int index, LivingEntity livingEntity)
             {
@@ -81,7 +83,7 @@ public class ItemWings extends Item {
                         player.setMotion(new Vec3d(x, y, z));
                     }
                     else if(player.onGround) {
-                        flight = 40;
+                        flight = maxFlightTime;
                         flying = false;
                     }
                 }

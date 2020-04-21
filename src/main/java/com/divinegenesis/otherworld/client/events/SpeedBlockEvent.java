@@ -25,8 +25,8 @@ public class SpeedBlockEvent
 
                 if( (playerEntity.moveForward != 0 || playerEntity.moveStrafing != 0) && !playerEntity.isInWater() )
                 {
-                    double x = playerEntity.getMotion().x * (1.4 + .05);
-                    double z = playerEntity.getMotion().z * (1.4 + .05);
+                    double x = playerEntity.getMotion().x * (1.2 + .05);
+                    double z = playerEntity.getMotion().z * (1.2 + .05);
                     playerEntity.setMotion(x, playerEntity.getMotion().y, z);
                 }
             }

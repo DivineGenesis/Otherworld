@@ -24,7 +24,7 @@ public class WorldGenManager
     {
         return OWFeatures.CRYSTAL_HEART.
                 withConfiguration(new NoFeatureConfig())
-                .func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(5, 5, 8, 21)));
+                .func_227228_a_(Placement.CHANCE_RANGE.func_227446_a_(new ChanceRangeConfig(1000f, 11, 0, 75)));
     }
 
     private static ConfiguredFeature<?, ?> urnFeature()

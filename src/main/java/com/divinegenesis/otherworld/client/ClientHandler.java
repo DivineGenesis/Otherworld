@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.client;
 
+import com.divinegenesis.otherworld.client.renderer.CrystalHeartRenderer;
 import com.divinegenesis.otherworld.client.renderer.HungryChestRenderer;
 import com.divinegenesis.otherworld.client.renderer.entity.MandrakeRenderer;
 import com.divinegenesis.otherworld.client.screens.SoulForgeScreen;
@@ -19,6 +20,7 @@ public class ClientHandler {
     public static void register() {
         ScreenManager.registerFactory(ModContainers.SOULFORGE_CONTAINER.get(), SoulForgeScreen::new);
         ClientRegistry.bindTileEntityRenderer(ModTileEntities.HUNGRY_CHEST, HungryChestRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(ModTileEntities.CRYSTAL_HEART, CrystalHeartRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.MANDRAKE, MandrakeRenderer::new);
 
         //block foliage

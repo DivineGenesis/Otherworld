@@ -3,6 +3,7 @@ package com.divinegenesis.otherworld.common.events;
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.CrystalHeartTE;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.HungryChestTE;
 import com.divinegenesis.otherworld.common.objects.blocks.tileentities.types.SoulForgeTE;
 import com.divinegenesis.otherworld.common.objects.enchants.ModEnchants;
@@ -65,7 +66,8 @@ public class RegistryEvents
     public static void OnTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
         event.getRegistry().registerAll(
                 ModTileEntities.HUNGRY_CHEST = (TileEntityType<HungryChestTE>) TileEntityType.Builder.create(HungryChestTE::new, ModBlocks.HUNGRY_CHEST).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "hungrychest_te")),
-                ModTileEntities.SOUL_FORGE = TileEntityType.Builder.create(SoulForgeTE::new, ModBlocks.SOUL_FORGE).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "soulforge_te"))
+                ModTileEntities.SOUL_FORGE = TileEntityType.Builder.create(SoulForgeTE::new, ModBlocks.SOUL_FORGE).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "soulforge_te")),
+                ModTileEntities.CRYSTAL_HEART = (TileEntityType<CrystalHeartTE>) TileEntityType.Builder.create(CrystalHeartTE::new, ModBlocks.CRYSTAL_HEART).build(null).setRegistryName(new ResourceLocation(Otherworld.MODID, "crystalheart_te"))
         );
     }
 
