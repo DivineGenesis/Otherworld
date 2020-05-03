@@ -85,6 +85,7 @@ public class HungryChestTE extends LockableLootTileEntity implements ITickableTi
                 }
             }
 
+
             AxisAlignedBB aoe = new AxisAlignedBB(
                     pos.getX()-range,
                     pos.getY()-range,

@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.TagsProvider;

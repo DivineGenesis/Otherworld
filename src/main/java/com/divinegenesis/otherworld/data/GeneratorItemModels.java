@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 import com.divinegenesis.otherworld.Otherworld;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;

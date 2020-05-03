@@ -1,7 +1,6 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 import com.divinegenesis.otherworld.common.objects.items.ModItems;
-import com.divinegenesis.otherworld.common.recipes.PoppetShapelessRecipe;
 import com.divinegenesis.otherworld.common.recipes.ShapelessNBTRecipeBuilder;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.data.*;

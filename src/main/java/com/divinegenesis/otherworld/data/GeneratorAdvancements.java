@@ -1,10 +1,7 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 import net.minecraft.data.AdvancementProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-
-import java.io.IOException;
 
 public class GeneratorAdvancements extends AdvancementProvider
 {

@@ -3,6 +3,7 @@ package com.divinegenesis.otherworld;
 import com.divinegenesis.otherworld.client.ClientHandler;
 import com.divinegenesis.otherworld.client.renderer.HungryChestRenderer;
 import com.divinegenesis.otherworld.client.screens.SoulForgeScreen;
+import com.divinegenesis.otherworld.common.Config;
 import com.divinegenesis.otherworld.common.containers.ModContainers;
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
 import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
@@ -18,14 +19,17 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,6 +57,9 @@ public class Otherworld
         ModFluids fluids = new ModFluids();
         ModDimUtil.DIMENSIONS.register(event);
         ModContainers.CONTAINERS.register(event);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
+        Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID+"-client.toml"));
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event)

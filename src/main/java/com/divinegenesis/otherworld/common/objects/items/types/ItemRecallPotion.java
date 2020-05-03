@@ -27,14 +27,14 @@ public class ItemRecallPotion extends Item
         {
             PlayerEntity playerIn = (PlayerEntity) entityLiving;
             BlockPos pos = playerIn.getBedLocation(worldIn.getDimension().getType());
-            Optional<Vec3d> vec = PlayerEntity.func_213822_a(worldIn, pos, false);
+            Optional<Vec3d> vec = PlayerEntity.func_213822_a(worldIn, pos, true);
             if(vec.isPresent())
                 pos = new BlockPos(vec.get().x, vec.get().y, vec.get().z);
             else
                 pos = worldIn.getSpawnPoint();
-            playerIn.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());//setPosition(pos.getX(), pos.getY(), pos.getZ());
+            playerIn.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
         }
-        return ItemStack.EMPTY;
+        return stack;
     }
 
     @Override

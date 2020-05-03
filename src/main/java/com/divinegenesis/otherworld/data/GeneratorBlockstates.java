@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 
 import com.divinegenesis.otherworld.Otherworld;
@@ -9,7 +9,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
-import net.minecraftforge.common.model.Models;
 
 public class GeneratorBlockstates extends BlockStateProvider
 {

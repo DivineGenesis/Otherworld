@@ -30,7 +30,7 @@ import java.util.List;
 
 public class ItemWings extends Item {
 
-    private int maxFlightTime = 40;
+    private int maxFlightTime = 80;
     public ItemWings(Properties properties) {
         super(properties);
     }
@@ -68,17 +68,20 @@ public class ItemWings extends Item {
                     {
                         flying = true;
                         Vec3d vec = player.getMotion();
-                        double x = vec.x * (1.08);
+                        double x = vec.x;
                         double y = vec.y;
-                        double z = vec.z * (1.08);
+                        double z = vec.z;
+
                         if(flight > 0) {
+                            x*= 1.08;
+                            z*= 1.08;
                             y = y + 0.095D;
                             flight--;
                         }
                         else
                         {
                             if(y < -0.15D)
-                                y = -0.15D;
+                                y += 0.096D;
                         }
                         player.setMotion(new Vec3d(x, y, z));
                     }

@@ -1,4 +1,4 @@
-package com.divinegenesis.otherworld.common.data;
+package com.divinegenesis.otherworld.data;
 
 
 import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
@@ -7,7 +7,6 @@ import com.divinegenesis.otherworld.common.objects.items.ModItems;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.entity.model.BlazeModel;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
@@ -16,6 +15,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
+import net.minecraft.world.storage.loot.functions.SetCount;
 
 import java.util.List;
 import java.util.Map;
@@ -55,7 +55,18 @@ public class GeneratorLoot extends LootTableProvider
             ModBlocks.BLOCKS.forEach(block -> this.registerDropSelfLootTable(block));
             this.registerDropping(ModBlocks.CRYSTAL_HEART, ModItems.HEART);
             this.registerLootTable(ModBlocks.HUNGRY_CHEST, BlockLootTables::droppingWithName);
-            this.registerLootTable(ModBlocks.URN, LootTable.builder().addLootPool(LootPool.builder().rolls(ConstantRange.of(3)).addEntry(ItemLootEntry.builder(Items.EXPERIENCE_BOTTLE))));
+            this.registerLootTable(ModBlocks.URN, LootTable.builder().addLootPool(LootPool.builder()
+                    .rolls(RandomValueRange.of(1, 3))
+                    .addEntry(ItemLootEntry.builder(Items.EXPERIENCE_BOTTLE).weight(50).acceptFunction(SetCount.builder(RandomValueRange.of(2, 5))))
+                    .addEntry(ItemLootEntry.builder(ModItems.RECALL_POTION).weight(22))
+                    .addEntry(ItemLootEntry.builder(Items.ENDER_PEARL).weight(8))
+                    .addEntry(ItemLootEntry.builder(Items.BONE).weight(12).acceptFunction(SetCount.builder(RandomValueRange.of(1, 2))))
+                    .addEntry(ItemLootEntry.builder(Items.STRING).weight(12))
+                    .addEntry(ItemLootEntry.builder(Items.SPIDER_EYE).weight(12).acceptFunction(SetCount.builder(RandomValueRange.of(1, 3))))
+                    .addEntry(ItemLootEntry.builder(Items.ROTTEN_FLESH).weight(17).acceptFunction(SetCount.builder(RandomValueRange.of(4, 7))))
+                    .addEntry(ItemLootEntry.builder(Items.IRON_NUGGET).weight(8).acceptFunction(SetCount.builder(RandomValueRange.of(2, 8))))
+                    .addEntry(ItemLootEntry.builder(Items.GOLD_NUGGET).weight(5).acceptFunction(SetCount.builder(RandomValueRange.of(2, 6))))
+                    .addEntry(ItemLootEntry.builder(Items.TORCH).weight(28).acceptFunction(SetCount.builder(RandomValueRange.of(3, 8))))));
 
         }
 
