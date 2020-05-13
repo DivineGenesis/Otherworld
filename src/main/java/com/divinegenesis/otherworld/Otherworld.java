@@ -1,27 +1,22 @@
 package com.divinegenesis.otherworld;
 
 import com.divinegenesis.otherworld.client.ClientHandler;
-import com.divinegenesis.otherworld.client.renderer.HungryChestRenderer;
-import com.divinegenesis.otherworld.client.screens.SoulForgeScreen;
 import com.divinegenesis.otherworld.common.Config;
+import com.divinegenesis.otherworld.common.capability.OWPlayerCap;
+import com.divinegenesis.otherworld.common.capability.OWWorldCap;
 import com.divinegenesis.otherworld.common.containers.ModContainers;
-import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
-import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
-import com.divinegenesis.otherworld.common.objects.blocks.tileentities.ModTileEntities;
-import com.divinegenesis.otherworld.common.objects.entities.types.MandrakeEntity;
-import com.divinegenesis.otherworld.common.objects.fluids.ModFluids;
 import com.divinegenesis.otherworld.common.helpers.CuriosHelper;
+import com.divinegenesis.otherworld.common.network.NetworkHandler;
+import com.divinegenesis.otherworld.common.objects.blocks.ModBlocks;
+import com.divinegenesis.otherworld.common.objects.fluids.ModFluids;
 import com.divinegenesis.otherworld.common.world.dimensions.ModDimUtil;
 import com.divinegenesis.otherworld.common.world.gen.WorldGenManager;
-import com.divinegenesis.otherworld.common.network.NetworkHandler;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -65,8 +60,9 @@ public class Otherworld
     private void onCommonSetup(final FMLCommonSetupEvent event)
     {
         NetworkHandler.register();
+        CapabilityManager.INSTANCE.register(OWWorldCap.IWorldData.class, new OWWorldCap.Storage(), OWWorldCap.DefaultImp::new);
+        CapabilityManager.INSTANCE.register(OWPlayerCap.IPlayerData.class, new OWPlayerCap.Storage(), OWPlayerCap.DefaultImp::new);
         WorldGenManager.setupGenerator();
-        CapabilityOWPlayer.register();
     }
 
     private void onClientSetup(final FMLClientSetupEvent event)

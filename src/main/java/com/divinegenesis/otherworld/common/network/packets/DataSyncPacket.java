@@ -1,7 +1,8 @@
 package com.divinegenesis.otherworld.common.network.packets;
 
-import com.divinegenesis.otherworld.common.capability.CapabilityOWPlayer;
+import com.divinegenesis.otherworld.common.capability.OWPlayerCap;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
 
@@ -9,29 +10,41 @@ import java.util.function.Supplier;
 
 public class DataSyncPacket
 {
-    private final boolean soul;
 
-    public DataSyncPacket(boolean soul)
+    private CompoundNBT nbt;
+
+    public DataSyncPacket(){}
+
+    public static void encode(DataSyncPacket msg, PacketBuffer buffer)
     {
-        this.soul = soul;
+        buffer.writeCompoundTag(msg.nbt);
     }
 
-    public static void encode(DataSyncPacket msg, PacketBuffer packetBuffer)
+    public static DataSyncPacket decode(PacketBuffer buffer)
     {
-        packetBuffer.writeBoolean(msg.soul);
-    }
+        DataSyncPacket newpkt = new DataSyncPacket();
 
-    public static DataSyncPacket decode(PacketBuffer packetBuffer)
-    {
-        return new DataSyncPacket(packetBuffer.readBoolean());
+        newpkt.nbt = buffer.readCompoundTag();
+
+        return newpkt;
     }
 
     public static void handle(DataSyncPacket msg, Supplier<NetworkEvent.Context> ctx)
     {
-        ctx.get().enqueueWork(() -> {
-            PlayerEntity playerEntity = ctx.get().getSender();
+        ctx.get().enqueueWork(() ->
+        {
+            try {
+                final PlayerEntity playerEntity = ctx.get().getSender();
 
-            playerEntity.getCapability(CapabilityOWPlayer.DATA).ifPresent(iowPlayerStorage -> iowPlayerStorage.setSoul(msg.soul));
+                if (playerEntity != null)
+                {
+                    playerEntity.getCapability(OWPlayerCap.DATA).orElse(new OWPlayerCap.DefaultImp()).loadFromNBT(msg.nbt);
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
         });
 
         ctx.get().setPacketHandled(true);
