@@ -86,9 +86,13 @@ public class OWPlayerCap
         }
 
         @Override
-        public void loadFromNBT(CompoundNBT value) {
+        public void loadFromNBT(CompoundNBT value)
+        {
             soul = value.getBoolean("soul");
             sanity = value.getInt("sanity");
+
+            if (sanity() > 250)
+                sanity = 250;
         }
     }
 

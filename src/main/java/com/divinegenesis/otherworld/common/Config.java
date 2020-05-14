@@ -8,23 +8,42 @@ import java.nio.file.Path;
 
 public class Config
 {
-    private static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
     public static ForgeConfigSpec CLIENT_CONFIG;
+    public static ForgeConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue HEART_OVERLAY;
-
-    static
-    {
-        CLIENT_BUILDER.push("CLIENT");
-        HEART_OVERLAY = CLIENT_BUILDER.comment("Otherworld/'s heart overlay, because vanilla sucks").define("heart overlay", true);
-        CLIENT_BUILDER.pop();
-        CLIENT_CONFIG = CLIENT_BUILDER.build();
+    static {
+        CLIENT_CONFIG = new ForgeConfigSpec.Builder().configure(Client::new).getValue();
+        COMMON_CONFIG = new ForgeConfigSpec.Builder().configure(Common::new).getValue();
     }
 
+    public static class Client
+    {
+        public static ForgeConfigSpec.BooleanValue HEART_OVERLAY;
 
+        public Client(ForgeConfigSpec.Builder builder)
+        {
+            builder.push("CLIENT");
+            HEART_OVERLAY = builder.define("heart overlay", true);
+            builder.pop();
+            CLIENT_CONFIG = builder.build();
+        }
+    }
 
+    public static class Common
+    {
+        public static ForgeConfigSpec.IntValue INSANITY_FROM_DARKNESS;
 
+        public Common(ForgeConfigSpec.Builder builder)
+        {
+            builder.push("COMMON");
 
+            INSANITY_FROM_DARKNESS = builder.comment("Insanity gained by being in the darkness")
+                    .defineInRange("darkness insanity", 2, 0, 10);
+
+            builder.pop();
+            COMMON_CONFIG = builder.build();
+        }
+    }
 
     public static void loadConfig(ForgeConfigSpec spec, Path path)
     {
