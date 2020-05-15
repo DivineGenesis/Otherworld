@@ -1,5 +1,6 @@
 package com.divinegenesis.otherworld.common.events;
 
+import com.divinegenesis.otherworld.common.Config;
 import com.divinegenesis.otherworld.common.OWTags;
 import com.divinegenesis.otherworld.common.capability.OWPlayerCap;
 import net.minecraft.block.Block;
@@ -24,11 +25,7 @@ public class SanityEvents
             if (player.world.getBlockState(player.getPosition()).getLightValue() < 8)
             {
                 player.getCapability(OWPlayerCap.DATA).ifPresent(iPlayerData ->
-                {
-                    CompoundNBT nbt = iPlayerData.saveToNBT();
-                    nbt.putInt("sanity", iPlayerData.sanity()-2);
-                    iPlayerData.loadFromNBT(nbt);
-                });
+                 iPlayerData.setSanity(iPlayerData.getSanity()-Config.COMMON.INSANITY_FROM_DARKNESS.get()));
             }
         }
     }
@@ -41,7 +38,7 @@ public class SanityEvents
             Block block = event.getState().getBlock();
             PlayerEntity player = event.getPlayer();
             LazyOptional<OWPlayerCap.IPlayerData> optional = player.getCapability(OWPlayerCap.DATA);
-            int sanity = 0;
+            double sanity = 0;
 
             if (block.isIn(OWTags.Blocks.INSANITY))
             {
@@ -52,12 +49,10 @@ public class SanityEvents
                 sanity = 2;
             }
 
-            int finalSanity = sanity;
+            double finalSanity = sanity;
             optional.ifPresent(iPlayerData ->
             {
-                CompoundNBT nbt = iPlayerData.saveToNBT();
-                nbt.putInt("sanity", iPlayerData.sanity()+finalSanity);
-                iPlayerData.loadFromNBT(nbt);
+                iPlayerData.setSanity(iPlayerData.getSanity()+finalSanity);
             });
         }
     }

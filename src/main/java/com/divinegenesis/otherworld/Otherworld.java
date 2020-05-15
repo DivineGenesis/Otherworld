@@ -42,6 +42,8 @@ public class Otherworld
 
     public Otherworld()
     {
+        Config.register();
+
         IEventBus event = FMLJavaModLoadingContext.get().getModEventBus();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
@@ -52,12 +54,6 @@ public class Otherworld
         ModFluids fluids = new ModFluids();
         ModDimUtil.DIMENSIONS.register(event);
         ModContainers.CONTAINERS.register(event);
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
-        Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID+"-client.toml"));
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
-        Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID+"-common.toml"));
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event)

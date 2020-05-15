@@ -25,7 +25,10 @@ public class OWPlayerCap
     public interface IPlayerData extends ICommonCap
     {
         boolean hasSoul();
-        int sanity();
+        void setSoul(boolean hasSoul);
+
+        double getSanity();
+        void setSanity(double sanity);
     }
 
     @Mod.EventBusSubscriber
@@ -57,14 +60,8 @@ public class OWPlayerCap
 
     public static class DefaultImp implements IPlayerData
     {
-        boolean soul;
-        int sanity;
-
-        public DefaultImp()
-        {
-            soul = true;
-            sanity = 250;
-        }
+        boolean soul = true;
+        double sanity = 250;
 
         @Override
         public boolean hasSoul()
@@ -73,15 +70,20 @@ public class OWPlayerCap
         }
 
         @Override
-        public int sanity() {
-            return sanity;
-        }
+        public void setSoul(boolean hasSoul) { soul = hasSoul; }
+
+        @Override
+        public double getSanity() { return sanity; }
+
+        @Override
+        public void setSanity(double sanity) { this.sanity = sanity; }
+
 
         @Override
         public CompoundNBT saveToNBT() {
             CompoundNBT nbt = new CompoundNBT();
-            nbt.putBoolean("soul", hasSoul());
-            nbt.putInt("sanity", sanity());
+            nbt.putBoolean("soul", soul);
+            nbt.putDouble("sanity", sanity);
             return nbt;
         }
 
@@ -91,7 +93,7 @@ public class OWPlayerCap
             soul = value.getBoolean("soul");
             sanity = value.getInt("sanity");
 
-            if (sanity() > 250)
+            if (sanity > 250)
                 sanity = 250;
         }
     }
